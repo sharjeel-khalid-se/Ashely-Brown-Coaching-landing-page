@@ -1,12 +1,13 @@
 // src/content/site.ts
 // Copy transcribed from Coach Ash's email (phone-note screenshots).
-// Typos fixed; wording otherwise kept in her voice.
+// Spelling and punctuation fixed with client permission; wording and voice kept exactly as she wrote.
 // "REVIEW" = claim to confirm with the client before launch (health/results/credentials).
 
 export const siteContent = {
   brand: {
     name: "Coach Ash",
     tagline: "Nutritionist + online coach",
+    logo: "/images/logo.png", // Muscle Mommy Method logo — confirmed as one logo by client
     // REVIEW: confirm exact credential wording allowed in her state ("Nurse Nutritionist", "RN")
     credentialsLine: "Nurse Nutritionist · Body transformation expert · Glute specialist",
     instagram: "https://instagram.com/transformation.pro.ash", // confirm handle
@@ -41,9 +42,38 @@ export const siteContent = {
 
   method: {
     intro: "Introducing the Muscle Mommy Method",
-    progressPhotos: "[PLACEHOLDER: client progress photos, need written permission]",
+    // Real client before/after transformation photos (Ash confirmed permission to publish)
+    progressPhotoImages: [
+      "/images/testimonals/838708670_1902306324475605_7671778679451673715_n.png",
+      "/images/testimonals/839445471_984442201360348_7100055884912948263_n.png",
+      "/images/testimonals/841030033_958282543466965_5428021720526466461_n.png",
+      "/images/testimonals/841207504_28800502216212908_4150222409509023190_n.png",
+      "/images/testimonals/843141163_1043878365331850_4912084895896398286_n.png",
+      "/images/testimonals/839842218_1644473797040583_7823131877008382038_n.png",
+    ],
+    // Testimonials extracted verbatim from client-provided message screenshots
     testimonials: [
-      // [PLACEHOLDER: real testimonials only, with permission]
+      {
+        quote: "3 c-sections later and I'm feeling better than I have ever before!!! This is why I can't leave you alone. We in this for life 🤣",
+        author: "@girlwiththesnaketattoo",
+        role: "Community member",
+      },
+      {
+        quote: "I literally feel like a brand new person... I have everything I wanted from this, more energy for the kids, I'm healthier, I'm happy in my own skin! I can sit and cross my legs now, silly stuff that people don't think about until you can't do it. It's WILD how far I've come!",
+        author: "Community member",
+      },
+      {
+        quote: "I also just wanted to share I have been feeling AMAZING. I am getting habitual about waking up earlier to get the gym in, and it has been doing wonders for my mental/emotional space. We are THRIVING. Thank you for creating an environment of structure and positive reinforcement.",
+        author: "Community member",
+      },
+      {
+        quote: "Can I just tell you that today was probably the first time ever in my life that I felt confident in the gym 😭",
+        author: "Community member",
+      },
+      {
+        quote: "you know sometimes in the moment, I get so insecure & hard on myself and just start nitpicking everyyyy part of my body. Then I see those side by side and I just feel so accomplished 😭",
+        author: "Community member",
+      },
     ],
   },
 
@@ -51,7 +81,11 @@ export const siteContent = {
     heading: "INSIDE of the Muscle Mommy Collective..",
     rrr: ["RESTORE THE CORE", "REHAB THE ABS", "REBUILD THE BODY"],
     subline: "The collective changing the body that moms wake up to every single day.",
-    progressPhotos: "[PLACEHOLDER: progress photos]",
+    progressPhotoImages: [
+      "/images/testimonals/838946853_1434316911976931_2255434394209736688_n.png",
+      "/images/testimonals/839445471_995710853550017_6242350430796234889_n.png",
+      "/images/testimonals/841814992_1354747891055458_7215361354074038019_n.png",
+    ],
   },
 
   wants: {
@@ -81,8 +115,11 @@ export const siteContent = {
 
   apply: {
     heading: "Apply for coaching",
+    postpartumStart: "Coaching available from 6 weeks postpartum.", // confirmed by client
+    // Confirmed flow (Ash, Oct 9):
+    afterApplySteps: ["Apply", "VIP Assessment Call", "Onboarding", "Program Start"],
     // Pricing is not shown in her copy. Confirm whether to show it, and what the VIP assessment call is.
-    afterSubmit: "Application received! I'll review it and email you within [PLACEHOLDER: timeframe].",
+    afterSubmit: "Application received! I'll review it and be in touch within 24 hours.",
   },
 
   form: {
@@ -192,9 +229,16 @@ export const siteContent = {
     eyebrow: "The trio you never knew you needed…",
     heading: "Coach Ash, Nurse Nutritionist, Body transformation expert and GLUTE specialist.",
     paragraphs: [
-      // [PLACEHOLDER: her story, not provided yet]
+      // Verbatim from Ash's About story. Punctuation fixed with client permission; wording unchanged.
+      // Changes: "Coach Ash. mom" → "Coach Ash, mom" | "budge.. even" → "budge — even" | "life. and" → "life, and" | "i truly" → "I truly"
+      "I'm Coach Ash, mom of three, coach of 13 years, Registered Nurse Nutritionist, and body transformation expert.",
+      "A few years ago, I saw a gap in women's fitness: moms were being told to \"bounce back\" without being taught how to rebuild after birth and C-sections. I knew that struggle because I was living it.",
+      "After a traumatic vaginal birth that nearly took my life and two back-to-back C-sections, my body wouldn't budge — even with years of coaching experience. I needed a new approach that respected everything my body had been through.",
+      "That's why I created the Muscle Mommy Method and RRR: Restore, Rehab, Rebuild.",
+      "Today, after three kids, I've built the best physique of my life, and I'm helping other moms reclaim their strength, confidence, and belief in what's possible.",
+      "I truly believe moms should feel their BEST after having kids, not settling for less.",
     ],
-    photo: "/images/about.jpg", // [PLACEHOLDER]
+    photo: "/images/about.jpg", // [PLACEHOLDER: photoshoot image]
   },
 
   faq: {
@@ -238,6 +282,7 @@ export const siteContent = {
     title: "6 Week RRR Challenge",
     eyebrow: "Restore your core after babies",
     intro: "You ready to leave the exhausted, not confident mom norm in the past?",
+    postpartumStart: "Can be started as soon as 7 days postpartum.", // confirmed by client
     forYouIf: [
       "You're ready to lose the C-section shelf + \"mom pooch\"",
       "You're ready to kiss the mom butt GOODBYE and grow your glutes",
@@ -252,7 +297,7 @@ export const siteContent = {
     buttonLabel: "Join the Challenge",
     note: "Digital program delivered through Stan Store.",
     // REVIEW: client's Stan page shows a crossed-out $297. Do not show it unless confirmed as a real previous price.
-    // REVIEW: client's Stan page claims "can be started as soon as 7 days postpartum" and "lose 10-20 pounds in 6 weeks". Do NOT include either claim.
+    // REVIEW: client's Stan page claims "lose 10-20 pounds in 6 weeks". Do NOT include this claim.
   },
 
   legal: {

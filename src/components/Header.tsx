@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { siteContent } from "@/content/site";
 import { Button } from "@/components/ui/Button";
@@ -45,15 +46,28 @@ export function Header() {
       }`}
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Left: Text Logo */}
+        {/* Left: Logo image (falls back to text if not set) */}
         <Link
           href="/"
           className="group flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-magenta rounded-md"
         >
-          <span className="text-lg sm:text-xl font-bold uppercase tracking-wider text-deep transition-colors group-hover:text-magenta">
-            {siteContent.nav.logoText}
-          </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+          {siteContent.brand.logo ? (
+            <Image
+              src={siteContent.brand.logo}
+              alt={siteContent.brand.name}
+              width={140}
+              height={48}
+              className="h-9 sm:h-11 w-auto object-contain"
+              priority
+            />
+          ) : (
+            <>
+              <span className="text-lg sm:text-xl font-bold uppercase tracking-wider text-deep transition-colors group-hover:text-magenta">
+                {siteContent.nav.logoText}
+              </span>
+              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+            </>
+          )}
         </Link>
 
         {/* Right: Apply Now Pill Button */}

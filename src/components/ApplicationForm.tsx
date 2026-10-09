@@ -191,6 +191,30 @@ export function ApplicationForm() {
         <p className="text-base sm:text-lg text-deep/90 leading-relaxed max-w-lg mx-auto">
           {siteContent.apply.afterSubmit}
         </p>
+
+        {/* What happens next — confirmed flow */}
+        <div className="mt-10">
+          <p className="text-xs font-semibold uppercase tracking-widest text-muted mb-5">
+            What happens next
+          </p>
+          <ol className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0">
+            {siteContent.apply.afterApplySteps.map((step, i) => (
+              <li key={step} className="flex items-center gap-3 sm:gap-0">
+                <div className="flex flex-col items-center">
+                  <span className="w-8 h-8 rounded-full bg-blush text-accent flex items-center justify-center text-xs font-bold shrink-0">
+                    {i + 1}
+                  </span>
+                  <span className="mt-2 text-xs sm:text-sm font-medium text-deep text-center max-w-[90px]">
+                    {step}
+                  </span>
+                </div>
+                {i < siteContent.apply.afterApplySteps.length - 1 && (
+                  <span className="hidden sm:block w-10 h-px bg-blush mx-2 mb-5 shrink-0" aria-hidden="true" />
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
     );
   }

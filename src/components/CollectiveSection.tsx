@@ -1,14 +1,10 @@
 import React from "react";
+import Image from "next/image";
 import { siteContent } from "@/content/site";
 import { Container } from "@/components/ui/Container";
-import { DevPlaceholder } from "@/components/ui/DevPlaceholder";
-import { HeartHandshake } from "lucide-react";
 
 export function CollectiveSection() {
-  const isProduction = process.env.NODE_ENV === "production";
-  // Hide photo-card section in production when there are no real images
-  const hasRealCollectivePhotos = false;
-  const shouldShowPhotoCards = !isProduction || hasRealCollectivePhotos;
+  const progressPhotos = siteContent.collective.progressPhotoImages ?? [];
 
   return (
     <section id="collective" className="py-20 sm:py-28 bg-cream relative overflow-hidden">
@@ -49,43 +45,31 @@ export function CollectiveSection() {
           </p>
         </div>
 
-        {/* Progress Photo Grid Placeholder: hidden in production build if no real images */}
-        {shouldShowPhotoCards && (
+        {/* Progress Photo Grid */}
+        {progressPhotos.length > 0 && (
           <div className="max-w-4xl mx-auto mt-10">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {[1, 2, 3].map((card) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+              {progressPhotos.map((src, i) => (
                 <div
-                  key={card}
-                  className="bg-white rounded-3xl border border-blush p-4 shadow-2xs"
+                  key={src}
+                  className="group bg-white rounded-3xl border border-blush p-3 shadow-2xs hover:shadow-xs transition-all overflow-hidden"
                 >
-                  <div className="relative aspect-[3/4] w-full rounded-2xl bg-off-white border-2 border-dashed border-coral-pink/30 flex flex-col items-center justify-between p-6 text-center select-none overflow-hidden">
-                    <span className="px-3 py-1 bg-blush text-crimson rounded-full text-xs font-bold uppercase tracking-wider">
-                      Community Win #{card}
-                    </span>
-
-                    <div className="w-12 h-12 rounded-full bg-blush flex items-center justify-center text-crimson">
-                      <HeartHandshake className="w-6 h-6" />
-                    </div>
-
-                    <div className="space-y-1">
-                      <span className="text-xs font-bold text-deep uppercase block">
-                        Collective Member
-                      </span>
-                      <span className="text-2xs text-muted block">
-                        Community member
-                      </span>
-                    </div>
+                  <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-blush/20">
+                    <Image
+                      src={src}
+                      alt={`Community member transformation ${i + 1}`}
+                      fill
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
                   </div>
+                  <p className="text-center text-2xs text-muted mt-2.5 pb-0.5">Community member · Results vary</p>
                 </div>
               ))}
             </div>
 
-            <div className="text-center mt-6">
-              <DevPlaceholder label="progress photos" />
-            </div>
-
             {/* Testimonial disclaimer */}
-            <p className="text-2xs sm:text-xs text-muted text-center mt-4 max-w-lg mx-auto">
+            <p className="text-2xs sm:text-xs text-muted text-center mt-6 max-w-lg mx-auto">
               {siteContent.legal.testimonialDisclaimer}
             </p>
           </div>
