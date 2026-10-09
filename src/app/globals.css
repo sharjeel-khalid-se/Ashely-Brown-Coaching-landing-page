@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #FAF7F4;
+  --color-blush: #F9DCE4;
+  --color-blush-light: #FDF4F6;
+  --color-accent: #E4719A;
+  --color-magenta: #C2185B;
+  --color-warm-beige: #EFE2D8;
+  --color-dark-brown: #3A2A28;
+  --color-deep: #2E2438;
+  --color-muted: #6B6275;
+
+  /* Aliases for backwards compatibility */
+  --color-off-white: #FAF7F4;
+  --color-crimson: #C2185B;
+  --color-crimson-hover: #A3154D;
+  --color-coral-pink: #E4719A;
+  --color-coral-pink-text: #C2185B;
+  --color-hot-pink: #E4719A;
+
+  --font-sans: var(--font-montserrat), Montserrat, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-montserrat: var(--font-montserrat), Montserrat, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+:root {
+  --background: #FAF7F4;
+  --foreground: #2E2438;
+  --color-cream: #FAF7F4;
+  --color-blush: #F9DCE4;
+  --color-blush-light: #FDF4F6;
+  --color-accent: #E4719A;
+  --color-magenta: #C2185B;
+  --color-warm-beige: #EFE2D8;
+  --color-dark-brown: #3A2A28;
+  --color-deep: #2E2438;
+  --color-muted: #6B6275;
+
+  --color-off-white: #FAF7F4;
+  --color-crimson: #C2185B;
+  --color-crimson-hover: #A3154D;
+  --color-coral-pink: #E4719A;
+  --color-coral-pink-text: #C2185B;
+  --color-hot-pink: #E4719A;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-deep);
+  font-family: var(--font-montserrat), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessible focus outlines for interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #C2185B;
+  outline-offset: 2px;
+}
+
+/* Scroll margin offset for anchored sections to clear fixed navigation */
+section[id],
+[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-fade-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Subtle fade-up animation on load */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
