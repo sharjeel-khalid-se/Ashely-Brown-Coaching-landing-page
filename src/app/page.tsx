@@ -3,6 +3,7 @@ import { Container, SectionHeading } from "@/components/ui";
 
 import fs from "fs";
 import path from "path";
+import Image from "next/image";
 import { Hero } from "@/components/Hero";
 import { ProblemSection } from "@/components/ProblemSection";
 import { MethodSection } from "@/components/MethodSection";
@@ -67,6 +68,39 @@ export default function LandingPage() {
             subline="Tell Coach Ash about your current routine, goals, and postpartum timeline."
             align="center"
           />
+
+          {/* Above Application Form: Photo #11 + T8 Instagram Comment Card */}
+          <div className="max-w-4xl mx-auto mb-10 sm:mb-14">
+            <div className="bg-white rounded-3xl border border-blush/80 p-6 sm:p-8 shadow-xs">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                {/* Photo #11: Laughing between pedestals */}
+                <div className="md:col-span-5 flex justify-center">
+                  <div className="relative aspect-[4/5] w-full max-w-[240px] rounded-2xl overflow-hidden bg-blush/20 border border-blush shadow-2xs">
+                    <Image
+                      src={siteContent.apply.aboveFormPhoto}
+                      alt="Coach Ash — Laughing and welcoming you to apply"
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 768px) 100vw, 240px"
+                    />
+                  </div>
+                </div>
+
+                {/* T8 Quote Card */}
+                <div className="md:col-span-7 space-y-4 text-center md:text-left">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blush text-magenta text-xs font-semibold uppercase tracking-wider">
+                    <span>3x C-Section Mom Win</span>
+                  </div>
+                  <blockquote className="text-base sm:text-lg font-medium text-deep leading-relaxed italic">
+                    &ldquo;{siteContent.apply.aboveFormQuote}&rdquo;
+                  </blockquote>
+                  <p className="text-xs font-bold uppercase tracking-wider text-muted">
+                    &mdash; {siteContent.apply.aboveFormQuoteAttribution}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <ApplicationForm />
         </Container>

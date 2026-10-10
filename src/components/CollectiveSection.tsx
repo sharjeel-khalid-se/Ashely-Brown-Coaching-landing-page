@@ -19,22 +19,74 @@ export function CollectiveSection() {
           </h2>
         </div>
 
-        {/* Stacked RRR Statements in soft blush card */}
-        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-blush/35 border border-blush p-5 sm:p-10 lg:p-14 shadow-2xs my-8">
-          <div className="relative z-10 max-w-3xl mx-auto space-y-4 sm:space-y-6 text-center">
-            {siteContent.collective.rrr.map((statement, index) => (
-              <div
-                key={index}
-                className="p-5 sm:p-7 rounded-xl sm:rounded-2xl bg-white/95 border border-blush/80 shadow-2xs hover:border-accent/40 transition-all flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6"
-              >
-                <span className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-blush text-magenta text-xs sm:text-sm font-bold shrink-0 border border-accent/30">
-                  0{index + 1}
+        {/* RRR Strip — Three across photo cards */}
+        <div className="my-10 sm:my-14">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {/* 01 RESTORE THE CORE - #4 */}
+            <div className="group bg-white rounded-3xl border border-blush/80 p-4 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between">
+              <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-blush/20 mb-4">
+                <Image
+                  src={siteContent.method.rrrPhotos.restore}
+                  alt="Restore the core — Coach Ash mat kneeling stretch"
+                  fill
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <span className="absolute top-3 left-3 px-3 py-1 bg-white/90 backdrop-blur-xs rounded-full text-xs font-bold text-magenta border border-blush shadow-2xs">
+                  01 RESTORE
                 </span>
-                <h3 className="text-lg sm:text-2xl md:text-3xl font-semibold sm:font-bold uppercase tracking-wide text-deep break-words">
-                  {statement}
-                </h3>
               </div>
-            ))}
+              <div className="text-center pb-2">
+                <h3 className="text-lg sm:text-xl font-bold uppercase tracking-wide text-deep">
+                  {siteContent.collective.rrr[0]}
+                </h3>
+                <p className="text-xs text-muted mt-1">Re-activate deep abdominal &amp; pelvic floor connection</p>
+              </div>
+            </div>
+
+            {/* 02 REHAB THE ABS - #18 */}
+            <div className="group bg-white rounded-3xl border border-blush/80 p-4 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between">
+              <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-blush/20 mb-4">
+                <Image
+                  src={siteContent.method.rrrPhotos.rehab}
+                  alt="Rehab the abs — Coach Ash bird-dog reach"
+                  fill
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <span className="absolute top-3 left-3 px-3 py-1 bg-white/90 backdrop-blur-xs rounded-full text-xs font-bold text-magenta border border-blush shadow-2xs">
+                  02 REHAB
+                </span>
+              </div>
+              <div className="text-center pb-2">
+                <h3 className="text-lg sm:text-xl font-bold uppercase tracking-wide text-deep">
+                  {siteContent.collective.rrr[1]}
+                </h3>
+                <p className="text-xs text-muted mt-1">Heal diastasis recti separation &amp; rebuild stability</p>
+              </div>
+            </div>
+
+            {/* 03 REBUILD THE BODY - #22 (cropped out man on right) */}
+            <div className="group bg-white rounded-3xl border border-blush/80 p-4 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between">
+              <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-blush/20 mb-4">
+                <Image
+                  src={siteContent.method.rrrPhotos.rebuild}
+                  alt="Rebuild the body — Coach Ash overhead press"
+                  fill
+                  className="object-cover object-[25%_center] group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <span className="absolute top-3 left-3 px-3 py-1 bg-white/90 backdrop-blur-xs rounded-full text-xs font-bold text-magenta border border-blush shadow-2xs">
+                  03 REBUILD
+                </span>
+              </div>
+              <div className="text-center pb-2">
+                <h3 className="text-lg sm:text-xl font-bold uppercase tracking-wide text-deep">
+                  {siteContent.collective.rrr[2]}
+                </h3>
+                <p className="text-xs text-muted mt-1">Build lean glutes, sculpt muscle &amp; burn stubborn fat</p>
+              </div>
+            </div>
           </div>
         </div>
 

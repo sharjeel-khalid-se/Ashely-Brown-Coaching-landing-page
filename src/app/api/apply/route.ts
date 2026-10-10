@@ -105,6 +105,7 @@ export async function POST(request: Request) {
         <p><strong>Primary Goal:</strong> ${data.primaryGoal}</p>
         <p><strong>Training Location:</strong> ${data.trainingLocation}</p>
         <p><strong>Days Per Week:</strong> ${data.trainingDays}</p>
+        <p><strong>Monthly Investment ($275–$415/mo):</strong> ${data.monthlyInvestment}</p>
         <div style="margin-top: 16px; padding: 12px; background-color: #F4F4F4; border-radius: 8px;">
           <strong>Biggest Struggle:</strong><br />
           ${data.biggestStruggle}

@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { siteContent } from "@/content/site";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -43,10 +44,10 @@ export default function ChallengePage() {
     stanStoreUrl && stanStoreUrl.trim().length > 0
   );
 
-  // Results area: hidden in production if empty
+  // Results area: shows real client progress photos
+  const progressPhotos = siteContent.challenge.progressPhotoImages ?? [];
   const isProduction = process.env.NODE_ENV === "production";
-  // Currently no approved real challenge progress photos exist yet
-  const hasChallengeResults = false;
+  const hasChallengeResults = progressPhotos.length > 0;
   const shouldShowResultsArea = !isProduction || hasChallengeResults;
 
   return (
@@ -117,35 +118,32 @@ export default function ChallengePage() {
               </p>
             </div>
 
-            {/* Visual Column / Cover Card */}
+            {/* Visual Column / Cover Card with Photo #16 */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative aspect-[3/4] w-64 sm:w-80 rounded-3xl bg-gradient-to-br from-blush/60 via-white to-blush/40 text-deep shadow-xs flex flex-col justify-between p-6 sm:p-8 overflow-hidden select-none border border-accent/25">
-                <div className="relative z-10 flex items-center justify-between">
-                  <span className="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-white/90 border border-blush text-muted">
-                    6-Week Plan
+              <div className="relative aspect-[3/4] w-72 sm:w-80 rounded-3xl overflow-hidden border border-accent/25 text-deep shadow-md bg-white">
+                <Image
+                  src={siteContent.challenge.coverPhoto}
+                  alt={`${siteContent.challenge.title} — Coach Ash`}
+                  fill
+                  priority
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 100vw, 320px"
+                />
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
+                  <span className="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-white/95 backdrop-blur-xs border border-blush text-magenta shadow-2xs">
+                    6-Week Guide
                   </span>
-                  <Trophy className="w-5 h-5 text-magenta" />
-                </div>
-
-                <div className="relative z-10 text-center py-6 space-y-3">
-                  <div className="w-16 h-16 mx-auto rounded-full bg-blush border border-accent/30 flex items-center justify-center text-magenta shadow-2xs">
-                    <Flame className="w-8 h-8" />
+                  <div className="w-8 h-8 rounded-full bg-white/95 flex items-center justify-center text-magenta shadow-2xs border border-blush">
+                    <Trophy className="w-4 h-4" />
                   </div>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-muted">
-                      Coach Ash Presents
-                    </p>
-                    <h2 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-deep mt-1">
-                      {siteContent.challenge.title}
-                    </h2>
-                  </div>
-                  <span className="inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/90 text-magenta border border-blush shadow-2xs">
-                    Restore &bull; Rehab &bull; Rebuild
-                  </span>
                 </div>
-
-                <div className="relative z-10 text-center">
-                  <DevPlaceholder label="challenge cover" />
+                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-xs rounded-2xl p-3.5 text-center border border-blush z-10 shadow-xs">
+                  <p className="text-2xs font-bold uppercase tracking-wider text-muted">
+                    Instant Download &bull; $97
+                  </p>
+                  <h3 className="text-sm sm:text-base font-bold uppercase tracking-tight text-deep mt-0.5">
+                    {siteContent.challenge.title}
+                  </h3>
                 </div>
               </div>
             </div>
@@ -165,26 +163,46 @@ export default function ChallengePage() {
             align="center"
           />
 
-          <div className="max-w-3xl mx-auto space-y-4 sm:space-y-5">
-            {siteContent.challenge.forYouIf.map((item, index) => (
-              <div
-                key={index}
-                className="group p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/95 border border-blush/80 shadow-2xs hover:border-accent/40 transition-all flex items-start gap-4 sm:gap-5"
-              >
-                {/* Decorative Checkbox Circle */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center max-w-6xl mx-auto mt-10">
+            {/* Checklist */}
+            <div className="lg:col-span-7 space-y-4 sm:space-y-5">
+              {siteContent.challenge.forYouIf.map((item, index) => (
                 <div
-                  aria-hidden="true"
-                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-blush border border-accent/40 text-magenta flex items-center justify-center shrink-0 transition-colors shadow-2xs mt-0.5"
+                  key={index}
+                  className="group p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/95 border border-blush/80 shadow-2xs hover:border-accent/40 transition-all flex items-start gap-4 sm:gap-5"
                 >
-                  <Check className="w-4 h-4 stroke-[2.5]" />
-                </div>
+                  <div
+                    aria-hidden="true"
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-blush border border-accent/40 text-magenta flex items-center justify-center shrink-0 transition-colors shadow-2xs mt-0.5"
+                  >
+                    <Check className="w-4 h-4 stroke-[2.5]" />
+                  </div>
 
-                {/* Requirement statement */}
-                <p className="text-base sm:text-lg font-normal text-deep/90 leading-relaxed pt-0.5">
-                  {item}
-                </p>
+                  <p className="text-base sm:text-lg font-normal text-deep/90 leading-relaxed pt-0.5">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Photo #21: Pedestals, back view over shoulder */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative aspect-[4/5] w-full max-w-md rounded-3xl overflow-hidden shadow-xs border border-blush bg-white">
+                <Image
+                  src={siteContent.challenge.forYouPhoto}
+                  alt="Coach Ash — Glute specialist and postpartum transformation"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 100vw, 400px"
+                />
+                <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-xs rounded-xl py-2 px-3 text-center border border-blush shadow-2xs">
+                  <p className="text-xs font-bold uppercase tracking-wider text-magenta">
+                    Grow Glutes &bull; Restore Core
+                  </p>
+                  <p className="text-2xs text-muted">Kick mom butt to the curb</p>
+                </div>
               </div>
-            ))}
+            </div>
           </div>
 
           {/* Mid CTA Button */}
@@ -217,22 +235,44 @@ export default function ChallengePage() {
             align="center"
           />
 
-          <div className="max-w-3xl mx-auto grid grid-cols-1 gap-4 sm:gap-5">
-            {siteContent.challenge.inside.map((item, index) => (
-              <div
-                key={index}
-                className="p-6 sm:p-7 rounded-2xl sm:rounded-3xl bg-white/95 border border-blush/80 flex items-start gap-4 sm:gap-5 shadow-2xs"
-              >
-                <div className="w-10 h-10 rounded-full bg-blush border border-accent/30 text-magenta flex items-center justify-center shrink-0 shadow-2xs">
-                  <CheckCircle2 className="w-5 h-5 stroke-[2.5]" />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center max-w-6xl mx-auto mt-10">
+            {/* Features list */}
+            <div className="lg:col-span-7 space-y-4 sm:space-y-5">
+              {siteContent.challenge.inside.map((item, index) => (
+                <div
+                  key={index}
+                  className="p-6 sm:p-7 rounded-2xl sm:rounded-3xl bg-white/95 border border-blush/80 flex items-start gap-4 sm:gap-5 shadow-2xs"
+                >
+                  <div className="w-10 h-10 rounded-full bg-blush border border-accent/30 text-magenta flex items-center justify-center shrink-0 shadow-2xs">
+                    <CheckCircle2 className="w-5 h-5 stroke-[2.5]" />
+                  </div>
+                  <div className="pt-1">
+                    <h3 className="text-base sm:text-lg font-semibold text-deep leading-snug">
+                      {item}
+                    </h3>
+                  </div>
                 </div>
-                <div className="pt-1">
-                  <h3 className="text-base sm:text-lg font-semibold text-deep leading-snug">
-                    {item}
-                  </h3>
+              ))}
+            </div>
+
+            {/* Photo #9: Mat, seated, smiling */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative aspect-[4/5] w-full max-w-md rounded-3xl overflow-hidden shadow-xs border border-blush bg-white">
+                <Image
+                  src={siteContent.challenge.insidePhoto}
+                  alt="Coach Ash — Workouts for home or gym"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 100vw, 400px"
+                />
+                <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-xs rounded-xl py-2 px-3 text-center border border-blush shadow-2xs">
+                  <p className="text-xs font-bold uppercase tracking-wider text-magenta">
+                    Home OR Gym Friendly
+                  </p>
+                  <p className="text-2xs text-muted">Complete video demos included</p>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
 
           {/* Pricing Box Callout */}
@@ -272,7 +312,7 @@ export default function ChallengePage() {
         </Container>
       </section>
 
-      {/* 4. RESULTS AREA (Hidden in production if empty) */}
+      {/* 4. RESULTS AREA */}
       {shouldShowResultsArea && (
         <section
           id="challenge-results"
@@ -286,34 +326,63 @@ export default function ChallengePage() {
             />
 
             <div className="max-w-4xl mx-auto">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                {[1, 2, 3].map((item) => (
-                  <div
-                    key={item}
-                    className="bg-white/95 rounded-3xl border border-blush/80 p-4 shadow-2xs"
-                  >
-                    <div className="relative aspect-[3/4] w-full rounded-2xl bg-blush/30 border-2 border-dashed border-accent/25 flex flex-col items-center justify-between p-6 text-center select-none overflow-hidden">
-                      <span className="px-3 py-1 bg-white rounded-full text-xs font-semibold uppercase tracking-wider text-magenta shadow-2xs">
-                        6-Week Win #{item}
-                      </span>
-                      <div className="w-12 h-12 rounded-full bg-blush flex items-center justify-center text-magenta shadow-2xs border border-accent/20">
-                        <Camera className="w-6 h-6" />
+              {hasChallengeResults ? (
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                  {progressPhotos.map((src, idx) => (
+                    <div
+                      key={src}
+                      className="group bg-white/95 rounded-3xl border border-blush/80 p-3.5 shadow-2xs hover:shadow-xs transition-all overflow-hidden"
+                    >
+                      <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-blush/20">
+                        <Image
+                          src={src}
+                          alt={`Challenge Transformation Win #${idx + 1}`}
+                          fill
+                          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                          sizes="(max-width: 640px) 100vw, 33vw"
+                        />
                       </div>
-                      <span className="text-xs font-semibold text-deep uppercase block">
-                        Core Restoration
-                      </span>
+                      <div className="pt-3 pb-1 text-center">
+                        <span className="inline-block px-3 py-1 bg-blush text-magenta rounded-full text-xs font-semibold uppercase tracking-wider shadow-2xs mb-1.5">
+                          Transformation #{idx + 1}
+                        </span>
+                        <p className="text-2xs text-muted">Core Restoration · Results vary</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                  {[1, 2, 3].map((item) => (
+                    <div
+                      key={item}
+                      className="bg-white/95 rounded-3xl border border-blush/80 p-4 shadow-2xs"
+                    >
+                      <div className="relative aspect-[3/4] w-full rounded-2xl bg-blush/30 border-2 border-dashed border-accent/25 flex flex-col items-center justify-between p-6 text-center select-none overflow-hidden">
+                        <span className="px-3 py-1 bg-white rounded-full text-xs font-semibold uppercase tracking-wider text-magenta shadow-2xs">
+                          6-Week Win #{item}
+                        </span>
+                        <div className="w-12 h-12 rounded-full bg-blush flex items-center justify-center text-magenta shadow-2xs border border-accent/20">
+                          <Camera className="w-6 h-6" />
+                        </div>
+                        <span className="text-xs font-semibold text-deep uppercase block">
+                          Core Restoration
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
 
-              {/* Dev-only notice */}
-              <div className="text-center mt-6">
-                <DevPlaceholder label="client challenge progress photos, need written permission" />
-              </div>
+              {/* Dev-only notice (only shown when no real photos exist) */}
+              {!hasChallengeResults && (
+                <div className="text-center mt-6">
+                  <DevPlaceholder label="client challenge progress photos, need written permission" />
+                </div>
+              )}
 
               {/* Testimonial disclaimer in small text */}
-              <p className="text-2xs sm:text-xs text-muted text-center mt-4 max-w-lg mx-auto">
+              <p className="text-2xs sm:text-xs text-muted text-center mt-6 max-w-lg mx-auto">
                 {siteContent.legal.testimonialDisclaimer}
               </p>
             </div>

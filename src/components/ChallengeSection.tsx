@@ -1,8 +1,8 @@
 import React from "react";
+import Image from "next/image";
 import { siteContent } from "@/content/site";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { DevPlaceholder } from "@/components/ui/DevPlaceholder";
 import { Trophy, Sparkles, ArrowRight } from "lucide-react";
 
 export function ChallengeSection() {
@@ -11,30 +11,29 @@ export function ChallengeSection() {
       <Container>
         <div className="max-w-4xl mx-auto bg-white/95 rounded-3xl border border-blush/80 shadow-2xs p-6 sm:p-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10 items-center">
-            {/* Challenge Cover Mockup Placeholder */}
+            {/* Challenge Cover with Photo #16 */}
             <div className="md:col-span-4 flex justify-center">
-              <div className="relative aspect-[3/4] w-44 sm:w-52 rounded-2xl bg-gradient-to-br from-blush/60 via-white to-blush/40 border border-accent/25 text-deep shadow-2xs flex flex-col justify-between p-5 overflow-hidden select-none">
-                <div className="relative z-10 flex items-center justify-between">
-                  <span className="text-2xs font-semibold uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-white/90 border border-blush text-muted">
-                    Challenge
+              <div className="relative aspect-[3/4] w-48 sm:w-56 rounded-2xl overflow-hidden border border-accent/25 shadow-xs bg-white">
+                <Image
+                  src={siteContent.challenge.coverPhoto}
+                  alt={`${siteContent.challenge.title} — Coach Ash`}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 100vw, 224px"
+                />
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+                  <span className="text-2xs font-semibold uppercase tracking-widest px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-xs border border-blush text-magenta shadow-2xs">
+                    6-Week Guide
                   </span>
-                  <Trophy className="w-4 h-4 text-magenta" />
-                </div>
-
-                <div className="relative z-10 text-center py-4">
-                  <div className="w-12 h-12 mx-auto rounded-full bg-blush border border-accent/30 flex items-center justify-center mb-2 text-magenta shadow-2xs">
-                    <Trophy className="w-6 h-6" />
+                  <div className="w-7 h-7 rounded-full bg-white/95 flex items-center justify-center text-magenta shadow-2xs border border-blush">
+                    <Trophy className="w-3.5 h-3.5" />
                   </div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-muted">
-                    Coach Ash
-                  </p>
-                  <p className="text-sm font-bold uppercase tracking-tight text-deep mt-0.5">
+                </div>
+                <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-xs rounded-xl p-2.5 text-center border border-blush z-10 shadow-2xs">
+                  <p className="text-xs font-bold uppercase tracking-tight text-deep">
                     {siteContent.challenge.title}
                   </p>
-                </div>
-
-                <div className="relative z-10 text-center">
-                  <DevPlaceholder label="challenge cover" />
+                  <p className="text-2xs text-muted">Restore &bull; Rehab &bull; Rebuild</p>
                 </div>
               </div>
             </div>

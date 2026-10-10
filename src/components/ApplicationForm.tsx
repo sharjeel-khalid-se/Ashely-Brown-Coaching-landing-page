@@ -47,6 +47,7 @@ export function ApplicationForm() {
       trainingLocation: undefined,
       trainingDays: undefined,
       biggestStruggle: "",
+      monthlyInvestment: undefined,
       fullName: "",
       email: "",
       instagramHandle: "",
@@ -74,6 +75,7 @@ export function ApplicationForm() {
   const trainingLocation = watch("trainingLocation");
   const trainingDays = watch("trainingDays");
   const biggestStruggle = watch("biggestStruggle") || "";
+  const monthlyInvestment = watch("monthlyInvestment");
   const fullName = watch("fullName") || "";
   const email = watch("email") || "";
   const consent = watch("consent");
@@ -122,6 +124,10 @@ export function ApplicationForm() {
       }
       break;
     case 8:
+      isCurrentStepValid = Boolean(monthlyInvestment);
+      if (!isCurrentStepValid) inlineStepError = "Please select an option to continue";
+      break;
+    case 9:
       isCurrentStepValid =
         fullName.trim().length >= 2 && isEmailValid(email) && Boolean(consent);
       if (fullName.trim().length < 2) {
@@ -247,7 +253,7 @@ export function ApplicationForm() {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} noValidate>
+      <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col flex-1">
         {/* Hidden Honeypot Bot Trap */}
         <div className="hidden" aria-hidden="true">
           <label htmlFor="hp_field">Leave this empty</label>
@@ -260,8 +266,10 @@ export function ApplicationForm() {
           />
         </div>
 
-        {/* STEP 1: Time since giving birth */}
-        {currentStep === 1 && (
+        {/* Step Content Wrapper: Keeps step area at a stable height so buttons don't jump */}
+        <div className="min-h-[440px] sm:min-h-[400px] flex flex-col justify-start">
+          {/* STEP 1: Time since giving birth */}
+          {currentStep === 1 && (
           <div className="space-y-6">
             <div>
               <h3
@@ -692,7 +700,7 @@ export function ApplicationForm() {
           </div>
         )}
 
-        {/* STEP 8: Contact Details */}
+        {/* STEP 8: Monthly Investment */}
         {currentStep === 8 && (
           <div className="space-y-6">
             <div>
@@ -708,6 +716,64 @@ export function ApplicationForm() {
               </p>
             </div>
 
+            <div
+              role="radiogroup"
+              aria-label={siteContent.form.steps[8].title}
+              className="space-y-3"
+            >
+              {siteContent.form.steps[8].options.map((option) => {
+                const isSelected = monthlyInvestment === option;
+                return (
+                  <label
+                    key={option}
+                    className={`cursor-pointer p-4 sm:p-5 rounded-2xl border-2 transition-all flex items-center justify-between has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-crimson ${
+                      isSelected
+                        ? "border-coral-pink bg-blush shadow-xs ring-2 ring-coral-pink/30"
+                        : "border-blush bg-white hover:border-coral-pink/40 hover:bg-blush-light/50"
+                    }`}
+                  >
+                    <span className="text-base sm:text-lg font-bold text-deep pr-3">
+                      {option}
+                    </span>
+                    <input
+                      type="radio"
+                      value={option}
+                      {...register("monthlyInvestment")}
+                      className="sr-only"
+                    />
+                    <div
+                      aria-hidden="true"
+                      className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors ${
+                        isSelected
+                          ? "border-crimson bg-crimson"
+                          : "border-muted/40 bg-white"
+                      }`}
+                    >
+                      {isSelected && <Check className="w-3 h-3 text-white stroke-[3]" />}
+                    </div>
+                  </label>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* STEP 9: Contact Details */}
+        {currentStep === 9 && (
+          <div className="space-y-6">
+            <div>
+              <h3
+                ref={headingRef}
+                tabIndex={-1}
+                className="text-xl sm:text-2xl font-extrabold text-deep focus:outline-none"
+              >
+                {siteContent.form.steps[9].title}
+              </h3>
+              <p className="text-sm text-muted mt-1">
+                {siteContent.form.steps[9].subtitle}
+              </p>
+            </div>
+
             <div className="space-y-4">
               {/* Full Name */}
               <div>
@@ -715,12 +781,12 @@ export function ApplicationForm() {
                   htmlFor="full-name-input"
                   className="block text-xs font-bold uppercase tracking-wider text-deep mb-1.5"
                 >
-                  {siteContent.form.steps[8].nameLabel}
+                  {siteContent.form.steps[9].nameLabel}
                 </label>
                 <input
                   id="full-name-input"
                   type="text"
-                  placeholder={siteContent.form.steps[8].namePlaceholder}
+                  placeholder={siteContent.form.steps[9].namePlaceholder}
                   {...register("fullName")}
                   className="w-full p-4 rounded-2xl border-2 border-blush focus:border-coral-pink focus:outline-none focus:ring-2 focus:ring-coral-pink/20 text-deep text-base"
                 />
@@ -732,12 +798,12 @@ export function ApplicationForm() {
                   htmlFor="email-input"
                   className="block text-xs font-bold uppercase tracking-wider text-deep mb-1.5"
                 >
-                  {siteContent.form.steps[8].emailLabel}
+                  {siteContent.form.steps[9].emailLabel}
                 </label>
                 <input
                   id="email-input"
                   type="email"
-                  placeholder={siteContent.form.steps[8].emailPlaceholder}
+                  placeholder={siteContent.form.steps[9].emailPlaceholder}
                   {...register("email")}
                   className="w-full p-4 rounded-2xl border-2 border-blush focus:border-coral-pink focus:outline-none focus:ring-2 focus:ring-coral-pink/20 text-deep text-base"
                 />
@@ -749,15 +815,15 @@ export function ApplicationForm() {
                   htmlFor="instagram-input"
                   className="block text-xs font-bold uppercase tracking-wider text-deep mb-1.5"
                 >
-                  {siteContent.form.steps[8].instagramLabel}{" "}
+                  {siteContent.form.steps[9].instagramLabel}{" "}
                   <span className="text-muted font-normal">
-                    {siteContent.form.steps[8].instagramOptional}
+                    {siteContent.form.steps[9].instagramOptional}
                   </span>
                 </label>
                 <input
                   id="instagram-input"
                   type="text"
-                  placeholder={siteContent.form.steps[8].instagramPlaceholder}
+                  placeholder={siteContent.form.steps[9].instagramPlaceholder}
                   {...register("instagramHandle")}
                   className="w-full p-4 rounded-2xl border-2 border-blush focus:border-coral-pink focus:outline-none focus:ring-2 focus:ring-coral-pink/20 text-deep text-base"
                 />
@@ -804,29 +870,34 @@ export function ApplicationForm() {
             )}
           </div>
         )}
+        </div>
 
-        {/* Inline step validation hint */}
-        {!isCurrentStepValid && inlineStepError && (
-          <div className="mt-4 text-xs font-semibold text-muted flex items-center gap-1.5 animate-fade-up">
-            <span className="w-1.5 h-1.5 rounded-full bg-coral-pink" />
-            <span>{inlineStepError}</span>
-          </div>
-        )}
+        {/* Fixed-height slot for inline step validation hint: Prevents buttons from jumping */}
+        <div className="h-6 mt-3 flex items-center">
+          {!isCurrentStepValid && inlineStepError ? (
+            <div className="text-xs font-semibold text-muted flex items-center gap-1.5 animate-fade-up">
+              <span className="w-1.5 h-1.5 rounded-full bg-coral-pink shrink-0" />
+              <span>{inlineStepError}</span>
+            </div>
+          ) : null}
+        </div>
 
-        {/* Bottom Navigation Buttons */}
-        <div className="flex items-center justify-between gap-4 mt-8 pt-6 border-t border-blush">
-          {currentStep > 1 ? (
-            <button
-              type="button"
-              onClick={handlePrev}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-muted hover:text-deep transition-colors px-4 py-2.5 rounded-full hover:bg-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-magenta"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>{siteContent.form.navigation.prevButton}</span>
-            </button>
-          ) : (
-            <div />
-          )}
+        {/* Bottom Navigation Buttons: Fixed position across all steps */}
+        <div className="flex items-center justify-between gap-4 mt-4 pt-6 border-t border-blush">
+          <button
+            type="button"
+            onClick={handlePrev}
+            className={`inline-flex items-center gap-2 text-sm font-semibold text-muted hover:text-deep transition-colors px-4 py-2.5 rounded-full hover:bg-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-magenta ${
+              currentStep > 1
+                ? "opacity-100 pointer-events-auto"
+                : "opacity-0 pointer-events-none select-none invisible"
+            }`}
+            tabIndex={currentStep > 1 ? 0 : -1}
+            aria-hidden={currentStep <= 1}
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>{siteContent.form.navigation.prevButton}</span>
+          </button>
 
           {currentStep < totalSteps ? (
             <Button
@@ -835,7 +906,7 @@ export function ApplicationForm() {
               size="md"
               disabled={!isCurrentStepValid}
               onClick={handleNext}
-              className="font-semibold text-sm px-7 py-3 shadow-xs"
+              className="font-semibold text-sm px-7 py-3 shadow-xs min-w-[130px] justify-center"
             >
               <span>{siteContent.form.navigation.nextButton}</span>
               <ArrowRight className="w-4 h-4 ml-1.5" />
@@ -846,7 +917,7 @@ export function ApplicationForm() {
               variant="primary"
               size="lg"
               disabled={!isCurrentStepValid || isSubmitting}
-              className="font-bold text-sm sm:text-base px-8 py-3.5 uppercase tracking-wider shadow-xs"
+              className="font-bold text-sm sm:text-base px-8 py-3.5 uppercase tracking-wider shadow-xs min-w-[170px] justify-center"
             >
               {isSubmitting ? (
                 <>

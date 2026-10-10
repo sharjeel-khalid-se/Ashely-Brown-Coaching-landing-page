@@ -52,7 +52,16 @@ export const applicationSchema = z.object({
     .min(5, "Please share a few words about your biggest struggle")
     .max(500, "Must be 500 characters or less"),
 
-  // Step 8: Contact details
+  // Step 8: Coaching investment
+  monthlyInvestment: z.enum(
+    [
+      "Yes, payment plan me!",
+      "I'd rather spend that on fast food per month and gain 50 more pounds.",
+    ],
+    { message: "Please select an option to continue" }
+  ),
+
+  // Step 9: Contact details
   fullName: z
     .string()
     .min(2, "Please enter your full name"),
