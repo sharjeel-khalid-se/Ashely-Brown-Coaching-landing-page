@@ -9,7 +9,9 @@ export function StickyChallengeBar() {
   const [isHeroIntersecting, setIsHeroIntersecting] = useState(true);
   const [isFooterIntersecting, setIsFooterIntersecting] = useState(false);
 
-  const stanStoreUrl = process.env.NEXT_PUBLIC_STAN_STORE_URL;
+  const stanStoreUrl =
+    process.env.NEXT_PUBLIC_STAN_STORE_URL ||
+    siteContent.challenge.stanStoreUrl;
   const isUrlConfigured = Boolean(stanStoreUrl && stanStoreUrl.trim().length > 0);
 
   useEffect(() => {

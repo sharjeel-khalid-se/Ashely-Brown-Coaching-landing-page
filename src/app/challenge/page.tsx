@@ -39,7 +39,9 @@ export const metadata: Metadata = {
 };
 
 export default function ChallengePage() {
-  const stanStoreUrl = process.env.NEXT_PUBLIC_STAN_STORE_URL;
+  const stanStoreUrl =
+    process.env.NEXT_PUBLIC_STAN_STORE_URL ||
+    siteContent.challenge.stanStoreUrl;
   const isUrlConfigured = Boolean(
     stanStoreUrl && stanStoreUrl.trim().length > 0
   );
@@ -120,7 +122,7 @@ export default function ChallengePage() {
 
             {/* Visual Column / Cover Card with Photo #16 */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative aspect-[3/4] w-72 sm:w-80 rounded-3xl overflow-hidden border border-accent/25 text-deep shadow-md bg-white">
+              <div className="relative aspect-[3/4] w-72 sm:w-80 rounded-3xl overflow-hidden border border-blush shadow-md bg-white">
                 <Image
                   src={siteContent.challenge.coverPhoto}
                   alt={`${siteContent.challenge.title} — Coach Ash`}
@@ -129,21 +131,20 @@ export default function ChallengePage() {
                   className="object-cover object-top"
                   sizes="(max-width: 768px) 100vw, 320px"
                 />
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                  <span className="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-white/95 backdrop-blur-xs border border-blush text-magenta shadow-2xs">
-                    6-Week Guide
+                {/* Sleek top badge */}
+                <div className="absolute top-4 inset-x-4 flex justify-center z-10">
+                  <span className="text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full bg-white/95 backdrop-blur-xs border border-blush text-magenta shadow-2xs whitespace-nowrap">
+                    6-Week Guide &bull; $97
                   </span>
-                  <div className="w-8 h-8 rounded-full bg-white/95 flex items-center justify-center text-magenta shadow-2xs border border-blush">
-                    <Trophy className="w-4 h-4" />
-                  </div>
                 </div>
-                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-xs rounded-2xl p-3.5 text-center border border-blush z-10 shadow-xs">
-                  <p className="text-2xs font-bold uppercase tracking-wider text-muted">
-                    Instant Download &bull; $97
-                  </p>
-                  <h3 className="text-sm sm:text-base font-bold uppercase tracking-tight text-deep mt-0.5">
+                {/* Bottom subtle gradient overlay */}
+                <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-deep/90 via-deep/50 to-transparent text-white pt-10 text-center z-10">
+                  <p className="text-sm font-bold uppercase tracking-wide text-white drop-shadow-xs">
                     {siteContent.challenge.title}
-                  </h3>
+                  </p>
+                  <p className="text-xs text-cream/90 mt-0.5 font-medium">
+                    Restore &bull; Rehab &bull; Rebuild
+                  </p>
                 </div>
               </div>
             </div>

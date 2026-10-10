@@ -13,27 +13,28 @@ export function ChallengeSection() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10 items-center">
             {/* Challenge Cover with Photo #16 */}
             <div className="md:col-span-4 flex justify-center">
-              <div className="relative aspect-[3/4] w-48 sm:w-56 rounded-2xl overflow-hidden border border-accent/25 shadow-xs bg-white">
+              <div className="relative aspect-[3/4] w-60 sm:w-64 rounded-3xl overflow-hidden border border-blush shadow-sm bg-white">
                 <Image
                   src={siteContent.challenge.coverPhoto}
                   alt={`${siteContent.challenge.title} — Coach Ash`}
                   fill
                   className="object-cover object-top"
-                  sizes="(max-width: 768px) 100vw, 224px"
+                  sizes="(max-width: 768px) 100vw, 260px"
                 />
-                <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
-                  <span className="text-2xs font-semibold uppercase tracking-widest px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-xs border border-blush text-magenta shadow-2xs">
-                    6-Week Guide
+                {/* Sleek single top badge */}
+                <div className="absolute top-3 inset-x-3 flex justify-center z-10">
+                  <span className="text-2xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-white/95 backdrop-blur-xs border border-blush text-magenta shadow-2xs whitespace-nowrap">
+                    6-Week Guide &bull; $97
                   </span>
-                  <div className="w-7 h-7 rounded-full bg-white/95 flex items-center justify-center text-magenta shadow-2xs border border-blush">
-                    <Trophy className="w-3.5 h-3.5" />
-                  </div>
                 </div>
-                <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-xs rounded-xl p-2.5 text-center border border-blush z-10 shadow-2xs">
-                  <p className="text-xs font-bold uppercase tracking-tight text-deep">
+                {/* Bottom subtle gradient overlay */}
+                <div className="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-deep/90 via-deep/50 to-transparent text-white pt-10 text-center z-10">
+                  <p className="text-xs font-bold uppercase tracking-wide text-white drop-shadow-xs">
                     {siteContent.challenge.title}
                   </p>
-                  <p className="text-2xs text-muted">Restore &bull; Rehab &bull; Rebuild</p>
+                  <p className="text-2xs text-cream/90 mt-0.5 font-medium">
+                    Restore &bull; Rehab &bull; Rebuild
+                  </p>
                 </div>
               </div>
             </div>

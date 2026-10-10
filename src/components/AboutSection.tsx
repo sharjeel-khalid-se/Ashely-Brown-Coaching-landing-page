@@ -96,50 +96,58 @@ export function AboutSection({ hasAboutPhoto = false }: AboutSectionProps) {
             </h2>
 
             {/* Credential feature cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-              <div className="p-3.5 rounded-2xl bg-white/95 border border-blush/80 shadow-2xs flex items-center gap-3">
-                {siteContent.about.credentialPhoto ? (
-                  <div className="relative w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-blush shadow-2xs">
-                    <Image
-                      src={siteContent.about.credentialPhoto}
-                      alt="Coach Ash with anatomical muscle model"
-                      fill
-                      className="object-cover object-top"
-                      sizes="48px"
-                    />
-                  </div>
-                ) : (
-                  <HeartPulse className="w-5 h-5 text-magenta mb-1.5" />
-                )}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 pt-2">
+              <div className="p-4 rounded-2xl bg-white/95 border border-blush/80 shadow-2xs flex flex-col justify-between">
+                <div className="mb-3">
+                  {siteContent.about.credentialPhoto ? (
+                    <div className="relative w-11 h-11 rounded-xl overflow-hidden border border-blush shadow-2xs">
+                      <Image
+                        src={siteContent.about.credentialPhoto}
+                        alt="Coach Ash with anatomical muscle model"
+                        fill
+                        className="object-cover object-top"
+                        sizes="44px"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-10 h-10 rounded-xl bg-blush/50 border border-accent/20 flex items-center justify-center text-magenta">
+                      <HeartPulse className="w-5 h-5" />
+                    </div>
+                  )}
+                </div>
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-deep">
+                  <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wide text-deep leading-snug">
                     Nurse Nutritionist
                   </h4>
-                  <p className="text-2xs text-muted">Clinical care</p>
+                  <p className="text-2xs text-muted mt-0.5">Clinical care</p>
                 </div>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-white/95 border border-blush/80 shadow-2xs flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-blush/50 border border-accent/20 flex items-center justify-center shrink-0 text-magenta">
-                  <Award className="w-6 h-6" />
+              <div className="p-4 rounded-2xl bg-white/95 border border-blush/80 shadow-2xs flex flex-col justify-between">
+                <div className="mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-blush/50 border border-accent/20 flex items-center justify-center text-magenta shadow-2xs">
+                    <Award className="w-5 h-5" />
+                  </div>
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-deep">
+                  <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wide text-deep leading-snug">
                     Transformation Expert
                   </h4>
-                  <p className="text-2xs text-muted">13+ years coaching</p>
+                  <p className="text-2xs text-muted mt-0.5">13+ years coaching</p>
                 </div>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-white/95 border border-blush/80 shadow-2xs flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-blush/50 border border-accent/20 flex items-center justify-center shrink-0 text-magenta">
-                  <Dumbbell className="w-6 h-6" />
+              <div className="p-4 rounded-2xl bg-white/95 border border-blush/80 shadow-2xs flex flex-col justify-between">
+                <div className="mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-blush/50 border border-accent/20 flex items-center justify-center text-magenta shadow-2xs">
+                    <Dumbbell className="w-5 h-5" />
+                  </div>
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-deep">
+                  <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wide text-deep leading-snug">
                     Glute Specialist
                   </h4>
-                  <p className="text-2xs text-muted">Targeted rebuild</p>
+                  <p className="text-2xs text-muted mt-0.5">Targeted rebuild</p>
                 </div>
               </div>
             </div>
