@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { siteContent } from "@/content/site";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -17,9 +18,28 @@ export function ForYouIfSection() {
     }
   };
 
+  const backgroundPhoto = siteContent.forYouIf.backgroundPhoto;
+
   return (
-    <section id="for-you" className="py-20 sm:py-28 bg-cream border-y border-blush/60">
-      <Container>
+    <section id="for-you" className="relative py-20 sm:py-28 bg-cream border-y border-blush/60 overflow-hidden">
+      {/* Embedded gym photo background per Coach Ash's request */}
+      {backgroundPhoto && (
+        <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
+          <Image
+            src={backgroundPhoto}
+            alt=""
+            fill
+            className="object-cover object-[85%_center] sm:object-right opacity-30 sm:opacity-35 filter contrast-110"
+            sizes="100vw"
+          />
+          {/* Subtle top and bottom edge transition */}
+          <div className="absolute inset-0 bg-gradient-to-b from-cream via-transparent to-cream opacity-60" />
+          {/* Soft gradient to keep left content area crisp while photo is clearly visible on right */}
+          <div className="absolute inset-0 bg-gradient-to-r from-cream/95 via-cream/50 to-transparent" />
+        </div>
+      )}
+
+      <Container className="relative z-10">
         <SectionHeading
           eyebrow="Are We A Fit?"
           heading={siteContent.forYouIf.heading}
@@ -32,7 +52,7 @@ export function ForYouIfSection() {
           {siteContent.forYouIf.items.map((item, index) => (
             <div
               key={index}
-              className="group p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-white/95 border border-blush/80 hover:border-accent/40 transition-all duration-200 shadow-2xs hover:shadow-xs flex items-start gap-4 sm:gap-5"
+              className="group p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-white/95 backdrop-blur-xs border border-blush/90 hover:border-accent/40 transition-all duration-200 shadow-2xs hover:shadow-xs flex items-start gap-4 sm:gap-5"
             >
               {/* Decorative checkbox circle (not a form input) */}
               <div

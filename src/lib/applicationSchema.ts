@@ -68,6 +68,10 @@ export const applicationSchema = z.object({
   email: z
     .string()
     .email("Please enter a valid email address"),
+  phoneNumber: z
+    .string()
+    .optional()
+    .or(z.literal("")),
   instagramHandle: z
     .string()
     .optional()

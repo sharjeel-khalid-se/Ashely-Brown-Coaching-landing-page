@@ -19,9 +19,9 @@ export function CollectiveSection() {
           </h2>
         </div>
 
-        {/* RRR Strip — Three across photo cards */}
+        {/* RRR Strip — Three across photo cards — full-width layout */}
         <div className="my-10 sm:my-14">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {/* 01 RESTORE THE CORE - #4 */}
             <div className="group bg-white rounded-3xl border border-blush/80 p-4 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between">
               <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-blush/20 mb-4">

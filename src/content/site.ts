@@ -18,6 +18,7 @@ export const siteContent = {
   nav: {
     logoText: "Coach Ash",
     applyCta: "Apply Now",
+    challengeCta: "Join the Challenge",
     mobileStickyCta: "Apply for Coaching",
     footerCta: "Apply for Coaching",
   },
@@ -50,11 +51,14 @@ export const siteContent = {
       rebuild: "/images/Photoshot/845864810_978197952007508_8047479966712870590_n.jpg", // #22 Overhead dumbbell press in MMM tee
     },
     // Real client before/after transformation photos (Ash confirmed permission to publish)
-    // T4 = Black nursing bras (front), T6 = White bra/purple shorts→black set (front), T10 = Green top/white shorts→navy bra (front)
+    // Updated with newly edited studio-background photos
+    // 1. Heavy tattoos client requested by Ash
+    // 2. Client designated for MMM logo
+    // 3. Front transformation (purple shorts -> black set)
     progressPhotoImages: [
-      "/images/Before after photos/838708670_1902306324475605_7671778679451673715_n.png",   // T4 Black nursing bras (front)
-      "/images/Before after photos/840115091_960533610446683_3560475728128667768_n.png",    // T6 White bra/purple shorts → black set (front)
-      "/images/Before after photos/840577740_2158991151679622_163566126119652658_n.png",    // T10 Green top/white shorts → navy bra (front)
+      "/images/Edited Images/Tattooed Fitness Transformation Before and After.png",
+      "/images/Edited Images/Before and After Fitness Transformation.png",
+      "/images/Edited Images/Before and After Body Transformation (1).png",
     ],
     // Testimonials extracted verbatim from client-provided message screenshots
     testimonials: [
@@ -80,11 +84,25 @@ export const siteContent = {
         author: "Community member",
       },
     ],
-    // Client message screenshots
+    // Client message screenshots (17 individual verified DM screenshots)
     screenshotTestimonials: [
-      "/images/testimonals screenshot/840188886_1138530688899064_1536153723698839943_n.png",
-      "/images/testimonals screenshot/840951165_1362289299316377_1952915349946347933_n.png",
-      "/images/testimonals screenshot/842554076_2087363838813065_3906671281328171685_n.png",
+      "/images/testimonals screenshot/1.png",
+      "/images/testimonals screenshot/2.png",
+      "/images/testimonals screenshot/3.png",
+      "/images/testimonals screenshot/4.png",
+      "/images/testimonals screenshot/5.png",
+      "/images/testimonals screenshot/6.png",
+      "/images/testimonals screenshot/7.png",
+      "/images/testimonals screenshot/8.png",
+      "/images/testimonals screenshot/9.png",
+      "/images/testimonals screenshot/10.png",
+      "/images/testimonals screenshot/11.png",
+      "/images/testimonals screenshot/12.png",
+      "/images/testimonals screenshot/13.png",
+      "/images/testimonals screenshot/14.png",
+      "/images/testimonals screenshot/15.png",
+      "/images/testimonals screenshot/16.png",
+      "/images/testimonals screenshot/17.png",
     ],
   },
 
@@ -92,11 +110,14 @@ export const siteContent = {
     heading: "INSIDE of the Muscle Mommy Collective..",
     rrr: ["RESTORE THE CORE", "REHAB THE ABS", "REBUILD THE BODY"],
     subline: "The collective changing the body that moms wake up to every single day.",
-    // T5 = Camo bra → leopard bra (front), T12 = White floral bikini → black bikini (front), T14 = Grey bra/red undies → olive undies (side)
+    // Updated with newly edited studio-background photos for the Collective section
+    // 1. Side profile core/tummy recovery (diastasis recti / c-section shelf)
+    // 2. Glute & body contour rebuild
+    // 3. Athletic toned mom portrait
     progressPhotoImages: [
-      "/images/Before after photos/839278341_1018092617984541_2734143295779687260_n.png",   // T5
-      "/images/Before after photos/841030033_958282543466965_5428021720526466461_n.png",    // T12 — REVIEW: visible tattoos; need Ash's written consent
-      "/images/Before after photos/842100478_4029805317314416_1641007576559365913_n.png",   // T14
+      "/images/Edited Images/Side-by-Side Fitness Progress Comparison.png",
+      "/images/Edited Images/Studio Body Contour Before and After.png",
+      "/images/Edited Images/Before and After Fitness Portrait.png",
     ],
   },
 
@@ -108,11 +129,12 @@ export const siteContent = {
       // REVIEW: "losing fat every single day ... NO KICKBACKS" reads as a results guarantee
       "You want to wake up daily, losing fat every single day, feeling lighter and more energized WITH NO KICKBACKS!",
     ],
+    backgroundPhoto: "/images/Photoshot/845864810_978197952007508_8047479966712870590_n.jpg", // Coach Ash dumbbell press in MMM shirt
   },
 
   lockInLoop: {
     body: "And THAT'S why I've created the lock-in loop inside of this coaching program, where our check-ins are EVERY. SINGLE. WEEK. To ensure progress is being made, and you're locked in every single day.",
-    photo: "/images/Photoshot/842677394_1603562598132619_187859312333752399_n.jpg", // #19 Gym back view, towel, looking at camera
+    photo: "/images/Mockup Designs/Stronger You Fitness App Promo.png", // Coach Ash's approved mockup showing custom coaching app + weekly progress
   },
 
   forYouIf: {
@@ -124,6 +146,7 @@ export const siteContent = {
       // REVIEW: "LAST coach you'll ever hire" = strong promise
       "You want me to be the LAST coach that you ever hire, because after this you will know EXACTLY what to do to keep the progress rolling.",
     ],
+    backgroundPhoto: "/images/Photoshot/842677394_1603562598132619_187859312333752399_n.jpg", // Gym atmosphere — Coach Ash with towel looking over shoulder
   },
 
   apply: {
@@ -235,6 +258,9 @@ export const siteContent = {
         namePlaceholder: "Your full name",
         emailLabel: "Email Address",
         emailPlaceholder: "you@example.com",
+        phoneLabel: "Phone Number",
+        phoneOptional: "(optional)",
+        phonePlaceholder: "e.g. (555) 867-5309",
         instagramLabel: "Instagram Handle",
         instagramOptional: "(optional)",
         instagramPlaceholder: "@yourhandle",
@@ -266,7 +292,9 @@ export const siteContent = {
       "I truly believe moms should feel their BEST after having kids, not settling for less.",
     ],
     photo: "/images/Photoshot/840101591_2636613033454899_7851971200740497299_n.jpg", // #7 Stairs, arms crossed
-    credentialPhoto: "/images/Photoshot/841574488_2129500700934334_2694288136849635006_n.jpg", // #15 Holding muscle model (Nurse Nutritionist tag)
+    credentialPhoto: "/images/Photoshot/841574488_2129500700934334_2694288136849635006_n.jpg", // #15 Holding muscle model (Nurse Nutritionist)
+    transformationPhoto: "/images/Photoshot/841480100_4621122574832874_4399909173576357976_n.jpg", // In MMM sports bra (Transformation Expert)
+    glutePhoto: "/images/Photoshot/840848948_1102723895736344_6687394797573847374_n.jpg", // Gym glute pose looking back (Glute Specialist)
   },
 
   faq: {
@@ -330,11 +358,11 @@ export const siteContent = {
     coverPhoto: "/images/Photoshot/841608939_1049936801417809_5140832464182646745_n.jpg", // #16 Mat, seated stretch, serious
     forYouPhoto: "/images/Photoshot/844889048_1815634336129834_3288162649600908353_n.jpg", // #21 Pedestals, back view over shoulder
     insidePhoto: "/images/Photoshot/840418526_1756384422357474_3128540963387752029_n.jpg", // #9 Mat, seated, smiling
-    // Provisional transformations (held without "6-week win" label until Ash confirms timeline)
+    // Provisional transformations for the 6-Week Challenge
     progressPhotoImages: [
-      "/images/Before after photos/838946853_1434316911976931_2255434394209736688_n.png",
-      "/images/Before after photos/840020279_1778971896650320_36992660718914107_n.png",
-      "/images/Before after photos/840308253_1133315615700380_5217461985562258980_n.png",
+      "/images/Edited Images/Clinical Before-and-After Body Comparison.png",
+      "/images/Edited Images/Before and After Body Transformation.png",
+      "/images/Edited Images/Fitness Transformation Before and After.png",
     ],
     // REVIEW: client's Stan page shows a crossed-out $297. Do not show it unless confirmed as a real previous price.
     // REVIEW: client's Stan page claims "lose 10-20 pounds in 6 weeks". Do NOT include this claim.

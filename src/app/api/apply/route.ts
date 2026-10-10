@@ -97,6 +97,7 @@ export async function POST(request: Request) {
         </h2>
         <p><strong>Full Name:</strong> ${data.fullName}</p>
         <p><strong>Email:</strong> ${data.email}</p>
+        <p><strong>Phone Number:</strong> ${data.phoneNumber || "Not provided"}</p>
         <p><strong>Instagram Handle:</strong> ${data.instagramHandle || "Not provided"}</p>
         <p><strong>Time Since Giving Birth:</strong> ${data.timePostpartum}</p>
         <p><strong>Delivery Type:</strong> ${data.deliveryType}</p>

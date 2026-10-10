@@ -92,6 +92,10 @@ section[id],
     opacity: 1 !important;
     transform: none !important;
   }
+  .animate-marquee {
+    animation: none !important;
+    overflow-x: auto;
+  }
 }
 
 /* Subtle fade-up animation on load */
@@ -121,4 +125,25 @@ section[id],
 .animation-delay-300 {
   animation-delay: 300ms;
 }
+
+/* Infinite Marquee Scrolling for Client DMs */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 50s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 

@@ -5,12 +5,22 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { siteContent } from "@/content/site";
 import { Button } from "@/components/ui/Button";
+import { ExternalLink } from "lucide-react";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const isChallenge = pathname === "/challenge";
   const applyHref = isHome ? "#apply" : "/#apply";
+
+  // On the challenge page, the navbar CTA links to the Stan Store
+  const stanStoreUrl =
+    process.env.NEXT_PUBLIC_STAN_STORE_URL ||
+    siteContent.challenge.stanStoreUrl;
+  const isStanUrlConfigured = Boolean(
+    stanStoreUrl && stanStoreUrl.trim().length > 0
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,17 +66,30 @@ export function Header() {
           <span className="w-1.5 h-1.5 rounded-full bg-accent" />
         </Link>
 
-        {/* Right: Apply Now Pill Button */}
+        {/* Right: Context-aware CTA Button */}
         <div>
-          <Button
-            variant="primary"
-            size="sm"
-            href={applyHref}
-            onClick={handleApplyClick}
-            className="text-xs sm:text-sm px-4 sm:px-5 py-2 font-semibold"
-          >
-            {siteContent.nav.applyCta}
-          </Button>
+          {isChallenge && isStanUrlConfigured ? (
+            <Button
+              variant="primary"
+              size="sm"
+              href={stanStoreUrl}
+              isExternal
+              className="text-xs sm:text-sm px-4 sm:px-5 py-2 font-semibold"
+            >
+              <span>{siteContent.nav.challengeCta}</span>
+              <ExternalLink className="w-3.5 h-3.5 ml-1.5" />
+            </Button>
+          ) : (
+            <Button
+              variant="primary"
+              size="sm"
+              href={applyHref}
+              onClick={handleApplyClick}
+              className="text-xs sm:text-sm px-4 sm:px-5 py-2 font-semibold"
+            >
+              {siteContent.nav.applyCta}
+            </Button>
+          )}
         </div>
       </div>
     </header>

@@ -14,7 +14,6 @@ import { ForYouIfSection } from "@/components/ForYouIfSection";
 import { ApplicationForm } from "@/components/ApplicationForm";
 import { AboutSection } from "@/components/AboutSection";
 import { FaqSection } from "@/components/FaqSection";
-import { ChallengeSection } from "@/components/ChallengeSection";
 import { Footer } from "@/components/Footer";
 
 export default function LandingPage() {
@@ -59,7 +58,7 @@ export default function LandingPage() {
       <ForYouIfSection />
 
       {/* 8. APPLY SECTION */}
-      <section id="apply" className="py-20 sm:py-28 bg-blush/40 relative overflow-hidden">
+      <section id="coaching-apply" className="py-20 sm:py-28 bg-blush/40 relative overflow-hidden">
         <Container>
           <SectionHeading
             eyebrow="Step 1: Your Application"
@@ -102,7 +101,10 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <ApplicationForm />
+          {/* Interactive Multi-step Form — Target of all Apply CTAs */}
+          <div id="apply" className="scroll-mt-20 sm:scroll-mt-24">
+            <ApplicationForm />
+          </div>
         </Container>
       </section>
 
@@ -111,9 +113,6 @@ export default function LandingPage() {
 
       {/* 10. FAQ SECTION */}
       <FaqSection />
-
-      {/* 11. CHALLENGE SECTION */}
-      <ChallengeSection />
 
       {/* FOOTER */}
       <Footer />

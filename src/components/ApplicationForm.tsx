@@ -50,6 +50,7 @@ export function ApplicationForm() {
       monthlyInvestment: undefined,
       fullName: "",
       email: "",
+      phoneNumber: "",
       instagramHandle: "",
       consent: false as unknown as true,
       honeypot: "",
@@ -805,6 +806,26 @@ export function ApplicationForm() {
                   type="email"
                   placeholder={siteContent.form.steps[9].emailPlaceholder}
                   {...register("email")}
+                  className="w-full p-4 rounded-2xl border-2 border-blush focus:border-coral-pink focus:outline-none focus:ring-2 focus:ring-coral-pink/20 text-deep text-base"
+                />
+              </div>
+
+              {/* Phone Number */}
+              <div>
+                <label
+                  htmlFor="phone-input"
+                  className="block text-xs font-bold uppercase tracking-wider text-deep mb-1.5"
+                >
+                  {siteContent.form.steps[9].phoneLabel}{" "}
+                  <span className="text-muted font-normal">
+                    {siteContent.form.steps[9].phoneOptional}
+                  </span>
+                </label>
+                <input
+                  id="phone-input"
+                  type="tel"
+                  placeholder={siteContent.form.steps[9].phonePlaceholder}
+                  {...register("phoneNumber")}
                   className="w-full p-4 rounded-2xl border-2 border-blush focus:border-coral-pink focus:outline-none focus:ring-2 focus:ring-coral-pink/20 text-deep text-base"
                 />
               </div>

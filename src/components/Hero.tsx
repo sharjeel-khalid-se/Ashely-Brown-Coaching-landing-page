@@ -6,7 +6,7 @@ import { siteContent } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { DevPlaceholder } from "@/components/ui/DevPlaceholder";
-import { Sparkles, UserCheck, ArrowRight } from "lucide-react";
+import { Sparkles, UserCheck } from "lucide-react";
 
 export interface HeroProps {
   hasHeroPhoto?: boolean;
@@ -150,15 +150,6 @@ export function Hero({ hasHeroPhoto = false }: HeroProps) {
               >
                 {siteContent.hero.ctaPrimary}
               </Button>
-
-              <a
-                href="#challenge"
-                onClick={handleScrollTo("challenge")}
-                className="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-deep hover:text-magenta transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-magenta rounded-full px-4 py-3"
-              >
-                <span>{siteContent.hero.ctaSecondary}</span>
-                <ArrowRight className="w-4 h-4 text-magenta transition-transform group-hover:translate-x-1" />
-              </a>
             </div>
           </div>
         </div>

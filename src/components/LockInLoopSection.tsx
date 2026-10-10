@@ -34,22 +34,25 @@ export function LockInLoopSection() {
       <Container>
         <div className="relative rounded-3xl overflow-hidden bg-blush text-deep border border-accent/25 shadow-xs max-w-5xl mx-auto p-6 sm:p-10 lg:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            {/* Photo #19 */}
+            {/* App & Accountability Mockup */}
             {photo && (
               <div className="lg:col-span-5 flex justify-center order-2 lg:order-1">
-                <div className="relative aspect-[4/5] w-full max-w-sm rounded-2xl overflow-hidden shadow-xs border border-white/60 bg-white">
-                  <Image
-                    src={photo}
-                    alt="Coach Ash in the gym — The Lock-In Loop"
-                    fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 1024px) 100vw, 400px"
-                  />
-                  <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-xs rounded-xl py-2 px-3 text-center border border-blush shadow-2xs">
+                <div className="relative aspect-square w-full max-w-md rounded-3xl overflow-hidden shadow-xs border border-white/80 bg-white p-3">
+                  <div className="relative w-full h-full rounded-2xl overflow-hidden">
+                    <Image
+                      src={photo}
+                      alt="Coach Ash custom coaching app mockup — Weekly check-ins and progress tracking"
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 1024px) 100vw, 420px"
+                      priority
+                    />
+                  </div>
+                  <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-xs rounded-xl py-2 px-3 text-center border border-blush shadow-2xs">
                     <p className="text-xs font-bold uppercase tracking-wider text-deep">
-                      Weekly Accountability
+                      Weekly Accountability &bull; In-App Tracking
                     </p>
-                    <p className="text-2xs text-muted">Never slipping through the cracks</p>
+                    <p className="text-2xs text-muted">Personalized workouts, nutrition &amp; progress check-ins</p>
                   </div>
                 </div>
               </div>
