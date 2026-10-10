@@ -334,12 +334,24 @@ export default function ChallengePage() {
                       key={src}
                       className="group bg-white/95 rounded-3xl border border-blush/80 p-3.5 shadow-2xs hover:shadow-xs transition-all overflow-hidden"
                     >
-                      <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-blush/20">
+                      <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-cream/40 p-1">
+                        {/* Before & After Badges */}
+                        <div className="absolute top-2.5 left-2.5 z-10 pointer-events-none">
+                          <span className="px-2 py-0.5 rounded-md bg-deep/80 backdrop-blur-xs text-[10px] font-bold uppercase tracking-wider text-white shadow-xs">
+                            Before
+                          </span>
+                        </div>
+                        <div className="absolute top-2.5 right-2.5 z-10 pointer-events-none">
+                          <span className="px-2 py-0.5 rounded-md bg-magenta/90 backdrop-blur-xs text-[10px] font-bold uppercase tracking-wider text-white shadow-xs">
+                            After
+                          </span>
+                        </div>
+
                         <Image
                           src={src}
                           alt={`Challenge Transformation Win #${idx + 1}`}
                           fill
-                          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                          className="object-contain object-center"
                           sizes="(max-width: 640px) 100vw, 33vw"
                         />
                       </div>
