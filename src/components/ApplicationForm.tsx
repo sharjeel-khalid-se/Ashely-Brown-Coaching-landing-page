@@ -894,10 +894,7 @@ export function ApplicationForm() {
                   htmlFor="phone-input"
                   className="block text-xs font-bold uppercase tracking-wider text-deep mb-1.5"
                 >
-                  {siteContent.form.steps[9].phoneLabel}{" "}
-                  <span className="text-muted font-normal">
-                    {siteContent.form.steps[9].phoneOptional}
-                  </span>
+                  {siteContent.form.steps[9].phoneLabel}
                 </label>
                 <input
                   id="phone-input"

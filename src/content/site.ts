@@ -260,7 +260,6 @@ export const siteContent = {
         emailLabel: "Email Address",
         emailPlaceholder: "you@example.com",
         phoneLabel: "Phone Number",
-        phoneOptional: "(optional)",
         phonePlaceholder: "e.g. (555) 867-5309",
         instagramLabel: "Instagram Handle",
         instagramOptional: "(optional)",
@@ -369,12 +368,14 @@ export const siteContent = {
     coverPhoto: "/images/Photoshot/840115145_963288806216193_3651510653243299825_n-Copy.jpg", // #16 Mat, seated stretch, serious
     forYouPhoto: "/images/Photoshot/844889048_1815634336129834_3288162649600908353_n.jpg", // #21 Pedestals, back view over shoulder
     insidePhoto: "/images/Photoshot/843964280_1107253881695589_832985599769393734_n.jpg", // #9 Mat, seated, smiling
+    previewPhoto: "/images/842086349_2010293303009660_1564090000507991148_n.jpg",
     // Provisional transformations for the 6-Week Challenge
     progressPhotoImages: [
       "/images/Edited Images/Clinical Before-and-After Body Comparison.png",
       "/images/Edited Images/Before and After Body Transformation.png",
       "/images/Edited Images/Fitness Transformation Before and After.png",
     ],
+    
     // REVIEW: client's Stan page shows a crossed-out $297. Do not show it unless confirmed as a real previous price.
     // REVIEW: client's Stan page claims "lose 10-20 pounds in 6 weeks". Do NOT include this claim.
   },

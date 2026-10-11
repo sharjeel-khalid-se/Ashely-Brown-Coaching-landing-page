@@ -276,7 +276,34 @@ export default function ChallengePage() {
             </div>
           </div>
 
-          {/* Pricing Box Callout */}
+          
+        </Container>
+      </section>
+
+      {/* 3b. PROGRAM PREVIEW */}
+<section
+  id="challenge-preview"
+  className="py-16 sm:py-24 bg-cream border-b border-blush/60"
+>
+  <Container>
+    <SectionHeading
+      eyebrow="Sneak Peek"
+      heading="See what your 6 weeks look like"
+      align="center"
+    />
+
+    <div className="max-w-xl mx-auto mt-10 space-y-8">
+      <div className="relative aspect-square w-full rounded-3xl overflow-hidden shadow-md border border-blush bg-white">
+        <Image
+          src={siteContent.challenge.previewPhoto}
+          alt="6 Week Core Challenge by Coach Ash, showing the weekly workout plan and exercise photo library on a phone"
+          fill
+          className="object-cover object-center"
+          sizes="(max-width: 640px) 100vw, 576px"
+        />
+      </div>
+
+      {/* Pricing Box Callout */}
           <div className="max-w-md mx-auto mt-12 p-8 rounded-3xl bg-blush/40 border border-accent/25 text-center shadow-xs space-y-4">
             <span className="text-xs font-semibold uppercase tracking-widest text-magenta px-3 py-1 rounded-full bg-white border border-blush shadow-2xs">
               Instant Digital Access
@@ -310,8 +337,9 @@ export default function ChallengePage() {
               </button>
             )}
           </div>
-        </Container>
-      </section>
+    </div>
+  </Container>
+</section>
 
       {/* 4. RESULTS AREA */}
       {shouldShowResultsArea && (
