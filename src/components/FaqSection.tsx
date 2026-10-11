@@ -2,26 +2,29 @@ import React from "react";
 import { siteContent } from "@/content/site";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Plus } from "lucide-react";
 
 export function FaqSection() {
   return (
     <section id="faq" className="py-20 sm:py-28 bg-cream border-b border-blush/60 relative overflow-hidden">
       <Container>
-        <SectionHeading
-          eyebrow="Questions & Answers"
-          heading={siteContent.faq.heading}
-          align="center"
-          className="mb-10 sm:mb-14"
-        />
+        <ScrollReveal>
+          <SectionHeading
+            eyebrow="Questions & Answers"
+            heading={siteContent.faq.heading}
+            align="center"
+            className="mb-10 sm:mb-14"
+          />
+        </ScrollReveal>
 
         <div className="max-w-3xl mx-auto space-y-3.5 sm:space-y-4">
           {siteContent.faq.items.map((item, index) => (
-            <details
-              key={index}
-              name="faq"
-              className="group bg-blush/60 hover:bg-blush/80 border border-accent/25 rounded-full open:rounded-3xl open:bg-blush/70 open:border-accent/40 shadow-2xs motion-safe:transition-[border-color,background-color,border-radius] motion-safe:duration-300"
-            >
+            <ScrollReveal key={index} delayMs={index * 70}>
+              <details
+                name="faq"
+                className="group bg-blush/60 hover:bg-blush/80 border border-accent/25 rounded-full open:rounded-3xl open:bg-blush/70 open:border-accent/40 shadow-2xs motion-safe:transition-[border-color,background-color,border-radius] motion-safe:duration-300"
+              >
               <summary className="cursor-pointer list-none select-none px-6 py-4 sm:px-8 sm:py-5 flex items-center justify-between gap-4 font-semibold text-base sm:text-lg text-deep focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-magenta focus-visible:ring-offset-2 rounded-full [&::-webkit-details-marker]:hidden">
                 <span className="flex items-center gap-3.5 sm:gap-4 text-left">
                   <span
@@ -52,8 +55,9 @@ export function FaqSection() {
                 </div>
               </div>
             </details>
-          ))}
-        </div>
+          </ScrollReveal>
+        ))}
+      </div>
       </Container>
     </section>
   );

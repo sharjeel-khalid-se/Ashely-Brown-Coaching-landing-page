@@ -69,13 +69,13 @@ export function Hero({ hasHeroPhoto = false }: HeroProps) {
           <div className="lg:col-span-5 order-2 lg:order-1 animate-fade-up">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               {hasHeroPhoto ? (
-                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl sm:rounded-4xl shadow-sm border border-blush/80">
+                <div className="group card-hover relative aspect-[4/5] w-full overflow-hidden rounded-3xl sm:rounded-4xl shadow-sm border border-blush/80">
                   <Image
                     src={siteContent.hero.photo}
                     alt={`${siteContent.brand.name} - Online Postpartum Fat-Loss & Core Coach`}
                     priority
                     fill
-                    className="object-cover"
+                    className="object-cover img-zoom"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 40vw"
                   />
                 </div>
@@ -118,8 +118,8 @@ export function Hero({ hasHeroPhoto = false }: HeroProps) {
 
           {/* RIGHT COLUMN: Eyebrow, Headline, Credentials, Soft Pink Pill Buttons */}
           <div className="lg:col-span-7 order-1 lg:order-2 space-y-6 animate-fade-up animation-delay-100 text-center lg:text-left">
-            {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blush text-magenta text-xs sm:text-sm font-semibold uppercase tracking-widest border border-accent/20">
+            {/* Eyebrow with floating micro-animation */}
+            <div className="animate-float inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blush text-magenta text-xs sm:text-sm font-semibold uppercase tracking-widest border border-accent/20 shadow-2xs">
               <Sparkles className="w-3.5 h-3.5 text-accent" />
               <span>
                 {siteContent.brand.name} · {siteContent.brand.tagline}

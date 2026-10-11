@@ -3,6 +3,7 @@ import Image from "next/image";
 import { siteContent } from "@/content/site";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CheckCircle2 } from "lucide-react";
 
 export function WantsSection() {
@@ -28,21 +29,24 @@ export function WantsSection() {
       )}
 
       <Container className="relative z-10">
-        <SectionHeading
-          eyebrow="What you want"
-          heading={siteContent.wants.heading}
-          highlightWords={["ACTUALLY WANT…", "ACTUALLY WANT"]}
-          align="center"
-        />
+        <ScrollReveal>
+          <SectionHeading
+            eyebrow="What you want"
+            heading={siteContent.wants.heading}
+            highlightWords={["ACTUALLY WANT…", "ACTUALLY WANT"]}
+            align="center"
+          />
+        </ScrollReveal>
 
         <div className="max-w-3xl mx-auto space-y-4 sm:space-y-5 mt-8 sm:mt-12">
           {siteContent.wants.bullets.map((bullet, index) => (
-            <div
+            <ScrollReveal
               key={index}
-              className="group p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-white/95 backdrop-blur-xs border border-blush/90 hover:border-accent/40 transition-all duration-200 shadow-2xs hover:shadow-xs flex items-start gap-4 sm:gap-6"
+              delayMs={index * 110}
+              className="group card-hover p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-white/95 backdrop-blur-xs border border-blush/90 hover:border-accent/40 shadow-2xs flex items-start gap-4 sm:gap-6"
             >
               {/* Check icon in branded blush circle */}
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-blush text-magenta flex items-center justify-center shrink-0 mt-0.5 shadow-2xs border border-accent/20 transition-transform group-hover:scale-105">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-blush text-magenta flex items-center justify-center shrink-0 mt-0.5 shadow-2xs border border-accent/20 transition-transform group-hover:scale-110">
                 <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
               </div>
 
@@ -51,7 +55,7 @@ export function WantsSection() {
                   {bullet}
                 </p>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </Container>

@@ -17,11 +17,11 @@ export interface ButtonProps
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-blush text-magenta border border-accent/40 hover:bg-magenta hover:text-white hover:border-magenta shadow-xs hover:shadow-sm focus-visible:ring-magenta",
+    "bg-blush text-magenta border border-accent/40 hover:bg-magenta hover:text-white hover:border-magenta shadow-xs hover:shadow-sm focus-visible:ring-magenta btn-shimmer hover:scale-[1.02]",
   secondary:
-    "border border-magenta/40 text-magenta bg-transparent hover:bg-blush hover:border-magenta focus-visible:ring-magenta",
+    "border border-magenta/40 text-magenta bg-transparent hover:bg-blush hover:border-magenta focus-visible:ring-magenta hover:scale-[1.02]",
   white:
-    "bg-white text-magenta hover:bg-blush border border-blush shadow-xs hover:shadow-sm focus-visible:ring-magenta",
+    "bg-white text-magenta hover:bg-blush border border-blush shadow-xs hover:shadow-sm focus-visible:ring-magenta hover:scale-[1.02]",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

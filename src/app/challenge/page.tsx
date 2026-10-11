@@ -64,7 +64,7 @@ export default function ChallengePage() {
             {/* Copy Column */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blush text-magenta text-xs sm:text-sm font-semibold uppercase tracking-widest border border-accent/20">
+              <div className="animate-float inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blush text-magenta text-xs sm:text-sm font-semibold uppercase tracking-widest border border-accent/20 shadow-2xs">
                 <Sparkles className="w-4 h-4 text-accent" />
                 <span>{siteContent.challenge.eyebrow}</span>
               </div>
@@ -122,13 +122,13 @@ export default function ChallengePage() {
 
             {/* Visual Column / Cover Card with Photo #16 */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative aspect-[3/4] w-72 sm:w-80 rounded-3xl overflow-hidden border border-blush shadow-md bg-white">
+              <div className="group card-hover relative aspect-[3/4] w-72 sm:w-80 rounded-3xl overflow-hidden border border-blush shadow-md bg-white">
                 <Image
                   src={siteContent.challenge.coverPhoto}
                   alt={`${siteContent.challenge.title} — Coach Ash`}
                   fill
                   priority
-                  className="object-cover object-top"
+                  className="object-cover object-top img-zoom"
                   sizes="(max-width: 768px) 100vw, 320px"
                 />
                 {/* Sleek top badge */}

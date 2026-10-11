@@ -3,6 +3,7 @@ import Image from "next/image";
 import { siteContent } from "@/content/site";
 import { Container } from "@/components/ui/Container";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Sparkles } from "lucide-react";
 
 /**
@@ -34,15 +35,15 @@ export function MethodSection() {
     <section id="method" className="py-20 sm:py-28 bg-cream border-y border-blush/60">
       <Container>
         {/* Intro block: Styled to match the Muscle Mommy Method logo */}
-        <div className="max-w-5xl mx-auto mb-14 sm:mb-20">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white via-blush/35 to-white p-6 sm:p-10 lg:p-12 border-2 border-blush shadow-xs">
+        <ScrollReveal className="max-w-5xl mx-auto mb-14 sm:mb-20">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white via-blush/35 to-white p-6 sm:p-10 lg:p-12 border-2 border-blush shadow-xs animate-pulse-glow">
             {/* Top accent bar matching logo's signature magenta/pink */}
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-magenta via-pink-400 to-magenta" />
 
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
               <div className="md:col-span-7 space-y-5 text-center md:text-left">
                 {/* Branded Eyebrow Pill */}
-                <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-blush text-magenta text-xs font-bold uppercase tracking-widest border border-magenta/20 shadow-2xs">
+                <div className="animate-float inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-blush text-magenta text-xs font-bold uppercase tracking-widest border border-magenta/20 shadow-2xs">
                   <Sparkles className="w-3.5 h-3.5 text-accent" />
                   <span>The Method</span>
                 </div>
@@ -73,12 +74,12 @@ export function MethodSection() {
 
               {introPhoto && (
                 <div className="md:col-span-5 flex justify-center">
-                  <div className="relative aspect-[4/5] w-full max-w-xs rounded-2xl overflow-hidden shadow-xs border-2 border-white bg-blush/20">
+                  <div className="group card-hover relative aspect-[4/5] w-full max-w-xs rounded-2xl overflow-hidden shadow-xs border-2 border-white bg-blush/20">
                     <Image
                       src={introPhoto}
                       alt="Coach Ash reading the Muscle Mommy Method newspaper"
                       fill
-                      className="object-cover object-top"
+                      className="object-cover object-top img-zoom"
                       sizes="(max-width: 768px) 100vw, 320px"
                     />
                     <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-xs rounded-xl py-2 px-3 text-center border border-blush shadow-2xs">
@@ -92,25 +93,26 @@ export function MethodSection() {
               )}
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Progress Photo Grid (T4, T6, T10) */}
         {shouldShowPhotos && (
           <div className="max-w-5xl mx-auto mb-16 sm:mb-24">
-            <div className="text-center mb-8">
+            <ScrollReveal className="text-center mb-8">
               <span className="text-xs font-semibold uppercase tracking-widest text-muted">
                 Proven Client Transformations
               </span>
               <h3 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-deep mt-1">
                 Real Moms &bull; Real Results
               </h3>
-            </div>
+            </ScrollReveal>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
               {progressPhotos.map((src, i) => (
-                <div
+                <ScrollReveal
                   key={src}
-                  className="group relative bg-white rounded-3xl border border-blush/80 p-3 shadow-2xs hover:shadow-xs transition-all overflow-hidden"
+                  delayMs={i * 120}
+                  className="group card-hover relative bg-white rounded-3xl border border-blush/80 p-3 shadow-2xs overflow-hidden"
                 >
                   <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-cream/40 p-1">
                     {/* Before & After Badges */}
@@ -129,12 +131,12 @@ export function MethodSection() {
                       src={src}
                       alt={`Client transformation ${i + 1} — Community member`}
                       fill
-                      className="object-contain object-center"
+                      className="object-contain object-center img-zoom"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   </div>
                   <p className="text-center text-2xs text-muted mt-2.5 pb-0.5">Community member · Results vary</p>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
 

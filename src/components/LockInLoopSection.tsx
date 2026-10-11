@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { siteContent } from "@/content/site";
 import { Container } from "@/components/ui/Container";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Quote, Sparkles } from "lucide-react";
 
 /**
@@ -32,18 +33,18 @@ export function LockInLoopSection() {
   return (
     <section id="loop" className="py-20 sm:py-28 bg-cream relative overflow-hidden">
       <Container>
-        <div className="relative rounded-3xl overflow-hidden bg-blush text-deep border border-accent/25 shadow-xs max-w-5xl mx-auto p-6 sm:p-10 lg:p-12">
+        <ScrollReveal className="relative rounded-3xl overflow-hidden bg-blush text-deep border border-accent/25 shadow-xs max-w-5xl mx-auto p-6 sm:p-10 lg:p-12 animate-pulse-glow">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             {/* App & Accountability Mockup */}
             {photo && (
               <div className="lg:col-span-5 flex justify-center order-2 lg:order-1">
-                <div className="relative aspect-square w-full max-w-md rounded-3xl overflow-hidden shadow-xs border border-white/80 bg-white p-3">
+                <div className="group card-hover relative aspect-square w-full max-w-md rounded-3xl overflow-hidden shadow-xs border border-white/80 bg-white p-3">
                   <div className="relative w-full h-full rounded-2xl overflow-hidden">
                     <Image
                       src={photo}
                       alt="Coach Ash custom coaching app mockup — Weekly check-ins and progress tracking"
                       fill
-                      className="object-contain"
+                      className="object-contain img-zoom"
                       sizes="(max-width: 1024px) 100vw, 420px"
                       priority
                     />
@@ -61,7 +62,7 @@ export function LockInLoopSection() {
             {/* Quote content */}
             <div className={`space-y-6 text-center ${photo ? "lg:col-span-7 lg:text-left" : "max-w-3xl mx-auto"} order-1 lg:order-2`}>
               {/* Pill Tag */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-magenta text-xs sm:text-sm font-semibold uppercase tracking-widest border border-accent/30 shadow-2xs">
+              <div className="animate-float inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-magenta text-xs sm:text-sm font-semibold uppercase tracking-widest border border-accent/30 shadow-2xs">
                 <Sparkles className="w-4 h-4 text-accent" />
                 <span>The Lock-In Loop</span>
               </div>
@@ -77,7 +78,7 @@ export function LockInLoopSection() {
               </blockquote>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </Container>
     </section>
   );
