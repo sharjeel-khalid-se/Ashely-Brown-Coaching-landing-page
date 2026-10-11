@@ -367,7 +367,7 @@ export const siteContent = {
       "https://stan.store/CoachAshTraining/p/6-week-challenge-to-restore-your-core-after-babies?utm_source=ig&utm_medium=social&utm_content=link_in_bio",
     coverPhoto: "/images/Photoshot/840115145_963288806216193_3651510653243299825_n-Copy.jpg", // #16 Mat, seated stretch, serious
     forYouPhoto: "/images/Photoshot/844889048_1815634336129834_3288162649600908353_n.jpg", // #21 Pedestals, back view over shoulder
-    insidePhoto: "/images/Photoshot/840418526_1756384422357474_3128540963387752029_n.jpg", // #9 Mat, seated, smiling
+    insidePhoto: "/images/Photoshot/843964280_1107253881695589_832985599769393734_n.jpg", // #9 Mat, seated, smiling
     // Provisional transformations for the 6-Week Challenge
     progressPhotoImages: [
       "/images/Edited Images/Clinical Before-and-After Body Comparison.png",
