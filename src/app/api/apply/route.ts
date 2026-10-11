@@ -115,7 +115,7 @@ export async function POST(request: Request) {
     `;
 
     const { error: resendError } = await resend.emails.send({
-      from: "Muscle Mommy Method <onboarding@resend.dev>",
+      from: "Muscle Mommy Method <onboarding@musclemommymethod.biz>",
       to: recipientEmail,
       replyTo: data.email,
       subject: `New Coaching Application: ${data.fullName}`,

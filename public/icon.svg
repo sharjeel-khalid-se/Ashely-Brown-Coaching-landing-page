@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="mmm-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D81B60"/>
+      <stop offset="100%" stop-color="#9C0D46"/>
+    </linearGradient>
+    <filter id="mmm-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#3A071A" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Branded Squircle -->
+  <rect width="64" height="64" rx="16" fill="url(#mmm-grad)"/>
+
+  <!-- Subtle Inner Border Highlight -->
+  <rect x="1" y="1" width="62" height="62" rx="15" fill="none" stroke="#F9DCE4" stroke-opacity="0.25" stroke-width="1.5"/>
+
+  <!-- Athletic "M" Monogram for Muscle Mommy Method -->
+  <path d="M14 47V20h7.5l10.5 14.5L42.5 20H50v27h-7.5V31.5L33.5 44h-3L21.5 31.5V47H14z" fill="#FAF7F4" filter="url(#mmm-shadow)"/>
+
+  <!-- Coach Ash Signature Accent Dot -->
+  <circle cx="51" cy="14" r="4.5" fill="#F9DCE4"/>
+  <circle cx="51" cy="14" r="2.5" fill="#FFFFFF"/>
+</svg>
