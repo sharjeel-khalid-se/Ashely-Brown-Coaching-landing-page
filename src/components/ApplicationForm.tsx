@@ -17,6 +17,7 @@ import {
   ArrowRight,
   Loader2,
   Check,
+  Sparkles,
 } from "lucide-react";
 
 export function ApplicationForm() {
@@ -24,6 +25,7 @@ export function ApplicationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isDisqualified, setIsDisqualified] = useState(false);
 
   const headingRef = useRef<HTMLHeadingElement>(null);
   // Sentinel: skip the focus effect on initial mount so the page doesn't scroll
@@ -143,8 +145,29 @@ export function ApplicationForm() {
       isCurrentStepValid = true;
   }
 
+  // Scroll to #apply when disqualified
+  useEffect(() => {
+    if (isDisqualified) {
+      const applyEl = document.getElementById("apply");
+      if (applyEl) {
+        applyEl.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [isDisqualified]);
+
   const handleNext = () => {
-    if (isCurrentStepValid && currentStep < totalSteps) {
+    if (!isCurrentStepValid) return;
+
+    // Direct Disqualification: If applicant selects the disqualifying option on Step 8
+    if (
+      currentStep === 8 &&
+      monthlyInvestment === siteContent.form.disqualification.disqualifyingOption
+    ) {
+      setIsDisqualified(true);
+      return;
+    }
+
+    if (currentStep < totalSteps) {
       setCurrentStep((prev) => prev + 1);
     }
   };
@@ -184,6 +207,61 @@ export function ApplicationForm() {
       setIsSubmitting(false);
     }
   };
+
+  // DISQUALIFICATION SCREEN
+  if (isDisqualified) {
+    return (
+      <div className="bg-white rounded-3xl border border-blush p-8 sm:p-14 text-center shadow-md max-w-2xl mx-auto animate-fade-up">
+        <div className="w-16 h-16 rounded-full bg-blush text-magenta flex items-center justify-center mx-auto mb-6 shadow-xs border border-accent/20">
+          <Sparkles className="w-8 h-8" />
+        </div>
+        <h3 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-deep mb-4">
+          {siteContent.form.disqualification.heading}
+        </h3>
+        <p className="text-base sm:text-lg text-deep/90 leading-relaxed max-w-lg mx-auto">
+          {siteContent.form.disqualification.message}
+        </p>
+
+        {/* Action Buttons: 6-Week Challenge & Free Resources */}
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Button
+            variant="primary"
+            size="lg"
+            href="/challenge"
+            className="w-full sm:w-auto shadow-xs hover:shadow-sm uppercase tracking-wider text-sm font-bold px-8 py-4"
+          >
+            <span>{siteContent.form.disqualification.challengeButton}</span>
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Button>
+
+          <Button
+            variant="secondary"
+            size="lg"
+            href={siteContent.brand.instagram}
+            isExternal
+            className="w-full sm:w-auto shadow-xs hover:shadow-sm text-sm font-bold px-6 py-4"
+          >
+            <span>{siteContent.form.disqualification.freeResourcesButton}</span>
+          </Button>
+        </div>
+
+        {/* Change Answer Option */}
+        <div className="mt-8 pt-6 border-t border-blush">
+          <button
+            type="button"
+            onClick={() => {
+              setIsDisqualified(false);
+              setCurrentStep(8);
+            }}
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-muted hover:text-magenta transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-magenta rounded-md px-3 py-1.5"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>{siteContent.form.disqualification.backButton}</span>
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   // SUCCESS SCREEN
   if (isSuccess) {

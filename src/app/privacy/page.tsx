@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { siteContent } from "@/content/site";
 import { Container } from "@/components/ui/Container";
-import { ShieldCheck, ArrowLeft, AlertCircle } from "lucide-react";
+import { ShieldCheck, ArrowLeft } from "lucide-react";
 
 export const metadata = {
   title: `Privacy Policy | ${siteContent.brand.name}`,
@@ -22,18 +22,6 @@ export default function PrivacyPage() {
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Home</span>
           </Link>
-
-          {/* DRAFT REVIEW NOTICE BANNER */}
-          {/* TO REMOVE THIS NOTICE: Delete or comment out the div block below after legal counsel review */}
-          <div className="mb-8 p-4 sm:p-5 rounded-2xl bg-amber-50 border-2 border-dashed border-amber-400 text-amber-900 flex items-start gap-3.5 shadow-2xs">
-            <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-            <div className="text-xs sm:text-sm font-medium leading-relaxed">
-              <strong className="font-bold uppercase tracking-wide block text-amber-800">
-                [DRAFT: client and a professional should review]
-              </strong>
-              This policy is a preliminary template created for website development. It should be reviewed and customized with your legal and compliance counsel prior to accepting production user submissions.
-            </div>
-          </div>
 
           <article className="bg-white/95 p-6 sm:p-12 rounded-3xl shadow-2xs border border-blush/80 space-y-8">
             {/* Header */}

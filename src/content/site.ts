@@ -275,6 +275,16 @@ export const siteContent = {
       errorMessage: "Something went wrong sending your application. Please try again.",
       retryButton: "Try Again",
     },
+    disqualification: {
+      heading: "Thank You for Your Interest",
+      message:
+        "Thank you for your interest! It looks like 1-on-1 coaching might not be the right fit for you at this time. Feel free to check out our free resources or 6-Week Challenge instead!",
+      challengeButton: "Join the 6-Week Challenge",
+      freeResourcesButton: "Free Resources on Instagram",
+      backButton: "Go back and change my answer",
+      disqualifyingOption:
+        "I'd rather spend that on fast food per month and gain 50 more pounds.",
+    },
   },
 
 

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { siteContent } from "@/content/site";
 import { Container } from "@/components/ui/Container";
-import { FileText, ArrowLeft, AlertCircle, AlertTriangle } from "lucide-react";
+import { FileText, ArrowLeft, AlertTriangle } from "lucide-react";
 
 export const metadata = {
   title: `Terms & Conditions | ${siteContent.brand.name}`,
@@ -22,18 +22,6 @@ export default function TermsPage() {
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Home</span>
           </Link>
-
-          {/* DRAFT REVIEW NOTICE BANNER */}
-          {/* TO REMOVE THIS NOTICE: Delete or comment out the div block below after legal counsel review */}
-          <div className="mb-8 p-4 sm:p-5 rounded-2xl bg-amber-50 border-2 border-dashed border-amber-400 text-amber-900 flex items-start gap-3.5 shadow-2xs">
-            <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-            <div className="text-xs sm:text-sm font-medium leading-relaxed">
-              <strong className="font-bold uppercase tracking-wide block text-amber-800">
-                [DRAFT: client and a professional should review]
-              </strong>
-              These terms are a preliminary template created for website development. They should be formally reviewed and tailored with your legal counsel before launching commercial coaching or sales.
-            </div>
-          </div>
 
           <article className="bg-white/95 p-6 sm:p-12 rounded-3xl shadow-2xs border border-blush/80 space-y-8">
             {/* Header */}
