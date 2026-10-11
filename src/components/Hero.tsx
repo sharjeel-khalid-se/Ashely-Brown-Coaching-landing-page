@@ -136,7 +136,7 @@ export function Hero({ hasHeroPhoto = false }: HeroProps) {
 
             {/* Credentials / Subtitle */}
             <p className="text-base sm:text-lg text-muted font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              {siteContent.brand.credentialsLine}
+              {siteContent.hero.subheadline}
             </p>
 
             {/* CTAs */}

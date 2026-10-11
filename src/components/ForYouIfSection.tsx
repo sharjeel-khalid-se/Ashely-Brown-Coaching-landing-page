@@ -30,7 +30,7 @@ export function ForYouIfSection() {
             src={backgroundPhoto}
             alt=""
             fill
-            className="object-cover object-[85%_center] sm:object-right opacity-30 sm:opacity-35 filter contrast-110"
+            className="object-cover object-[50%_center] sm:object-right opacity-100 sm:opacity-100 filter contrast-110"
             sizes="100vw"
           />
           {/* Subtle top and bottom edge transition */}

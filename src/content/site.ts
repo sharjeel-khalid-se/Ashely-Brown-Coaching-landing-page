@@ -25,8 +25,9 @@ export const siteContent = {
 
 
   hero: {
-    headline: "It's time to kick the C-section shelf, “mom butt” and no energy TO THE CURB!",
-    highlightWords: ["C-section shelf", "mom butt"],
+    headline: "Your body built babies. Now I'M rebuilding YOU.",
+    highlightWords: ["rebuilding YOU"],
+      subheadline: "No more C-section shelves, “mom butts” or weight we don't want on MY team.",
     ctaPrimary: "Apply for Coaching",
     ctaSecondary: "Join the Challenge",
     photo: "/images/Photoshot/839869060_1637260221475849_3071360000220388480_n.jpg", // #6 Newspaper close — eyes sharp, "Muscle Mommy Method" front page visible
@@ -44,7 +45,7 @@ export const siteContent = {
 
   method: {
     intro: "Introducing the Muscle Mommy Method",
-    introPhoto: "/images/Photoshot/841644331_2439969386496403_2107670476816853547_n.jpg", // #17 Couch reading newspaper
+    introPhoto: "/images/844358802_2014502272577928_7411289564364785049_n.jpg", // #17 Couch reading newspaper
     rrrPhotos: {
       restore: "/images/Photoshot/839558828_1058311087027788_6310127441202570028_n.jpg", // #4 Mat, kneeling stretch
       rehab: "/images/Photoshot/842086349_1135462286096462_839265512371590603_n.jpg",   // #18 Mat, bird-dog reach
@@ -350,9 +351,9 @@ export const siteContent = {
     intro: "You ready to leave the exhausted, not confident mom norm in the past?",
     postpartumStart: "Can be started as soon as 7 days postpartum.", // confirmed by client
     forYouIf: [
-      "You're ready to lose the C-section shelf + \"mom pooch\"",
-      "You're ready to kiss the mom butt GOODBYE and grow your glutes",
-      "You're actually wanting to wake up DAILY motivated, energized and CONFIDENT (as you should!)",
+      "If you want to tighten your core with deep core / pelvic floor exercises",
+      "You want something to start working on as soon as today",
+      "You want to build a strong foundation for the rest of your body",
     ],
     inside: [
       "Nutrition guidance for breastfeeding / non-breastfeeding moms",

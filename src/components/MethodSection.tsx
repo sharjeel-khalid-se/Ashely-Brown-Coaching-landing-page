@@ -68,29 +68,31 @@ export function MethodSection() {
                 </h2>
 
                 <p className="text-base sm:text-lg text-deep/80 font-normal leading-relaxed max-w-lg">
-                  Rebuilding postpartum strength with clinical nursing precision and real-world mom empathy.
+                  Rebuilding postpartum bodies with clinical nutrition expertise, custom training plans + top tier accountability
                 </p>
               </div>
 
               {introPhoto && (
-                <div className="md:col-span-5 flex justify-center">
-                  <div className="group card-hover relative aspect-[4/5] w-full max-w-xs rounded-2xl overflow-hidden shadow-xs border-2 border-white bg-blush/20">
-                    <Image
-                      src={introPhoto}
-                      alt="Coach Ash reading the Muscle Mommy Method newspaper"
-                      fill
-                      className="object-cover object-top img-zoom"
-                      sizes="(max-width: 768px) 100vw, 320px"
-                    />
-                    <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-xs rounded-xl py-2 px-3 text-center border border-blush shadow-2xs">
-                      <p className="text-xs font-bold uppercase tracking-wider text-magenta">
-                        Muscle Mommy Method
-                      </p>
-                      <p className="text-2xs text-muted">Restore &bull; Rehab &bull; Rebuild</p>
-                    </div>
-                  </div>
-                </div>
-              )}
+  <div className="md:col-span-5 flex flex-col items-center gap-3">
+    <div className="group card-hover relative aspect-[1320/1133] w-full max-w-md rounded-2xl overflow-hidden shadow-xs border-2 border-white bg-blush/20">
+      <Image
+        src={introPhoto}
+        alt="Muscle Mommy Method with Coach Ash, showing the workouts, nutrition and coach support app screens"
+        fill
+        className="object-cover object-center img-zoom"
+        sizes="(max-width: 768px) 100vw, 448px"
+      />
+    </div>
+
+    {/* Tagline moved out of the image so it no longer covers the phones */}
+    <div className="bg-white/95 rounded-xl py-2 px-4 text-center border border-blush shadow-2xs">
+      <p className="text-xs font-bold uppercase tracking-wider text-magenta">
+        Muscle Mommy Method
+      </p>
+      <p className="text-2xs text-muted">Restore &bull; Rehab &bull; Rebuild</p>
+    </div>
+  </div>
+)}
             </div>
           </div>
         </ScrollReveal>
@@ -103,7 +105,7 @@ export function MethodSection() {
                 Proven Client Transformations
               </span>
               <h3 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-deep mt-1">
-                Real Moms &bull; Real Results
+                Real Results
               </h3>
             </ScrollReveal>
 

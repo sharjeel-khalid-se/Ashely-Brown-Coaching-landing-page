@@ -18,7 +18,7 @@ export function WantsSection() {
             src={backgroundPhoto}
             alt=""
             fill
-            className="object-cover object-[15%_center] sm:object-left opacity-30 sm:opacity-35 filter contrast-110"
+            className="object-cover object-[15%_center] sm:object-left opacity-70 sm:opacity-70 filter contrast-110"
             sizes="100vw"
           />
           {/* Subtle top and bottom transition */}

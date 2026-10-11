@@ -198,9 +198,9 @@ export default function ChallengePage() {
                 />
                 <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-xs rounded-xl py-2 px-3 text-center border border-blush shadow-2xs">
                   <p className="text-xs font-bold uppercase tracking-wider text-magenta">
-                    Grow Glutes &bull; Restore Core
+                    Restore Core
                   </p>
-                  <p className="text-2xs text-muted">Kick mom butt to the curb</p>
+                  <p className="text-2xs text-muted">Restoring the core after babies for a stronger, flatter midsection</p>
                 </div>
               </div>
             </div>
