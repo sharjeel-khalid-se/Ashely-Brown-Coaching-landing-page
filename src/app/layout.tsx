@@ -35,10 +35,14 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/favicon-48x48.png", type: "image/png", sizes: "48x48" },
+      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+      { url: "/favicon-192x192.png", type: "image/png", sizes: "192x192" },
+      { url: "/favicon-512x512.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico", sizes: "48x48" },
     ],
     shortcut: "/favicon.ico",
-    apple: "/apple-icon",
+    apple: "/apple-icon.png",
   },
   openGraph: {
     title: `${siteContent.brand.name} | Muscle Mommy Method`,
