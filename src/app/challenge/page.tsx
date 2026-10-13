@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${siteContent.challenge.title} | ${siteContent.brand.name}`,
     description: `${siteContent.challenge.eyebrow} — ${siteContent.challenge.intro}`,
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/challenge`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://www.musclemommymethod.biz"}/challenge`,
     siteName: siteContent.brand.name,
     images: [
       {

@@ -23,7 +23,7 @@ const montserrat = Montserrat({
 });
 
 const baseUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.musclemommymethod.biz";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -33,8 +33,12 @@ export const metadata: Metadata = {
   },
   description: `${siteContent.brand.credentialsLine} — ${siteContent.collective.rrr.join(" · ")}`,
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "32x32" },
+    ],
     shortcut: "/favicon.ico",
+    apple: "/apple-icon",
   },
   openGraph: {
     title: `${siteContent.brand.name} | Muscle Mommy Method`,
@@ -59,8 +63,15 @@ export const metadata: Metadata = {
     images: ["/images/og-image.jpg"],
   },
   robots: {
-    index: process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true",
-    follow: process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true",
+    index: process.env.NEXT_PUBLIC_ALLOW_INDEXING !== "false",
+    follow: process.env.NEXT_PUBLIC_ALLOW_INDEXING !== "false",
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

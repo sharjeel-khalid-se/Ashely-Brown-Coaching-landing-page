@@ -1,12 +1,13 @@
 import type { MetadataRoute } from "next";
 
-const allowIndexing =
-  process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true";
+const disallowIndexing =
+  process.env.NEXT_PUBLIC_ALLOW_INDEXING === "false";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.musclemommymethod.biz";
 
-  if (!allowIndexing) {
+  if (disallowIndexing) {
     return {
       rules: {
         userAgent: "*",
